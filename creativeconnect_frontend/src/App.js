@@ -72,48 +72,112 @@ function App() {
       case 'messages':
         return <MessagingSystem />;
       default:
-        // Minimalistic centered hero: Introduction + Explore button only, no images or extra content
+        // Upgraded vibrant hero: central expanded introduction + inspirational welcome lines
         return (
           <main>
             <section className="hero hero-modern hero-modern-centered home-hero-stripped">
               <div className="home-hero-content">
-                <h1 className="title home-title" style={{
-                  fontSize: '3rem',
-                  color: 'var(--cc-maroon)',
-                  fontWeight: 900,
-                  marginBottom: 12,
-                  textShadow: '0 2px 0 #ffd10442'
-                }}>
-                  Welcome to <span style={{color: 'var(--cc-gold)', fontWeight: 800}}>CreativeConnect</span>
+                <h1
+                  className="title home-title"
+                  style={{
+                    fontSize: '3rem',
+                    color: 'var(--cc-maroon)',
+                    fontWeight: 900,
+                    marginBottom: 10,
+                    textShadow: '0 2px 0 #ffd10442',
+                  }}
+                >
+                  Welcome to <span style={{ color: 'var(--cc-gold)', fontWeight: 800 }}>CreativeConnect</span>
                 </h1>
-                <div className="subtitle home-subtitle" style={{
-                  color:'var(--cc-gold)',
-                  fontWeight: 700,
-                  fontSize: '1.4rem',
-                  letterSpacing: '.02em',
-                  marginBottom: 10,
-                  marginTop: 2,
-                }}>
-                  Where artists & admirers unite. <span role="img" aria-label="sparkle">✨</span>
+                <div
+                  className="subtitle home-subtitle"
+                  style={{
+                    color: 'var(--cc-gold)',
+                    fontWeight: 700,
+                    fontSize: '1.45rem',
+                    letterSpacing: '.02em',
+                    marginTop: 2,
+                  }}
+                >
+                  Where creative minds gather and new friendships spark ✨
                 </div>
-                <p className="description home-desc" style={{
-                  fontSize: '1.15rem',
-                  color:'var(--text-secondary)',
-                  maxWidth: 520,
-                  margin: '0 auto 28px auto',
-                  lineHeight: 1.6,
-                  fontWeight: 500
-                }}>
-                  Discover inspiration, share creations, and fuel the art journey together.
+                <p
+                  className="description home-desc"
+                  style={{
+                    fontSize: '1.19rem',
+                    color: 'var(--text-secondary)',
+                    maxWidth: 520,
+                    margin: '18px auto 0 auto',
+                    lineHeight: 1.62,
+                    fontWeight: 500,
+                  }}
+                >
+                  <b>CreativeConnect</b> is a vibrant community for artists, crafters, and passionate admirers alike.<br />
+                  Share your artwork, connect with fellow creators, and discover unique handmade pieces tailored to your taste.
+                  <br />
+                  <span style={{ color: 'var(--cc-maroon)' }}>
+                    <b>Find inspiration. Celebrate talent. Support one another.
+                    <span style={{ color: 'var(--cc-gold)' }}> All in one uplifting hub.</span></b>
+                  </span>
                 </p>
-                <div className="hero-cta" style={{justifyContent:'center', marginTop: 28}}>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '0.95em',
+                    margin: '32px 0 19px 0',
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: '1.22rem',
+                      color: 'var(--cc-maroon)',
+                      fontWeight: 700,
+                      background: 'linear-gradient(90deg,#fffbe2 70%, #ffeaa8 100%)',
+                      borderRadius: 9,
+                      padding: '7px 19px',
+                      boxShadow: '0 1.5px 13px #ffd10420',
+                    }}
+                  >
+                    You’re welcome here—no matter if you’re a creator, collector, or just curious!
+                  </span>
+                  <span
+                    style={{
+                      fontSize: '1.09rem',
+                      color: 'var(--text-secondary)',
+                      fontWeight: 600,
+                      padding: '4px 14px',
+                    }}
+                  >
+                    Share your vision. Discover new art. Make meaningful connections.
+                  </span>
+                  <span
+                    style={{
+                      fontSize: '1.08rem',
+                      color: 'var(--cc-maroon)',
+                      fontWeight: 500,
+                      letterSpacing: '.01em',
+                      background: 'var(--cc-gold)',
+                      borderRadius: '7px',
+                      padding: '4px 17px 4px 17px',
+                      boxShadow: '0 2px 7px #ffe25f30',
+                    }}
+                  >
+                    Let’s celebrate creativity—together!
+                  </span>
+                </div>
+                <div className="hero-cta" style={{ justifyContent: 'center', marginTop: 18 }}>
                   <button
                     className="btn btn-accent btn-large hero-cta-btn home-explore-btn"
                     style={{
-                      minWidth: 150,
-                      fontSize: "1.18rem",
-                      fontWeight:800,
-                      letterSpacing:'.005em',
+                      minWidth: 160,
+                      fontSize: '1.21rem',
+                      fontWeight: 800,
+                      letterSpacing: '.005em',
+                      marginTop: '7px',
+                      borderRadius: 13,
+                      boxShadow: '0 7px 24px #80000025, 0 3px 8px #ffd10422',
                     }}
                     onClick={() => setSection('gallery')}
                   >
