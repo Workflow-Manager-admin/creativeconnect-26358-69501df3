@@ -72,72 +72,56 @@ function App() {
       case 'messages':
         return <MessagingSystem />;
       default:
-        // Enhanced Hero Section + animated features
+        // Minimalistic centered hero: Introduction + Explore button only, no images or extra content
         return (
           <main>
-            {/* Responsive: left=welcome, right=artwork, flex row on desktop */}
-            <section className="hero hero-modern hero-modern-centered hero-art-layout">
-              <div className="hero-main-content" style={{ margin: "0 auto" }}>
-                <div className="subtitle hero-fade-in" style={{fontWeight: 700, color: 'var(--cc-gold)'}}>Fuel your creativity</div>
-                <h1 className="title hero-fade-in" style={{
+            <section className="hero hero-modern hero-modern-centered home-hero-stripped">
+              <div className="home-hero-content">
+                <h1 className="title home-title" style={{
                   fontSize: '3rem',
-                  marginBottom: 8,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 13
+                  color: 'var(--cc-maroon)',
+                  fontWeight: 900,
+                  marginBottom: 12,
+                  textShadow: '0 2px 0 #ffd10442'
                 }}>
-                  <span className="logo-symbol" aria-label="Art">🎨</span>
-                  <span style={{ color: 'var(--cc-maroon)', filter: 'drop-shadow(0px 2px 0 #ffd10490)' }}>
-                    CreativeConnect
-                  </span>
+                  Welcome to <span style={{color: 'var(--cc-gold)', fontWeight: 800}}>CreativeConnect</span>
                 </h1>
-                <p className="description hero-fade-in" style={{marginBottom: 18, maxWidth: 640}}>
-                  <span style={{fontSize:"1.22em", marginRight:8}} role="img" aria-label="smile sparkle">✨</span>
-                  A vibrant art & craft community welcoming artists, crafters, and admirers.<br />
-                  <b style={{color: 'var(--cc-maroon)'}}>Discover</b> new artists, <b style={{color:'var(--cc-gold)'}}>explore</b> stories, and <b style={{color:'var(--cc-maroon)'}}>customize</b> your own art journey. Connect. Inspire. Create.
+                <div className="subtitle home-subtitle" style={{
+                  color:'var(--cc-gold)',
+                  fontWeight: 700,
+                  fontSize: '1.4rem',
+                  letterSpacing: '.02em',
+                  marginBottom: 10,
+                  marginTop: 2,
+                }}>
+                  Where artists & admirers unite. <span role="img" aria-label="sparkle">✨</span>
+                </div>
+                <p className="description home-desc" style={{
+                  fontSize: '1.15rem',
+                  color:'var(--text-secondary)',
+                  maxWidth: 520,
+                  margin: '0 auto 28px auto',
+                  lineHeight: 1.6,
+                  fontWeight: 500
+                }}>
+                  Discover inspiration, share creations, and fuel the art journey together.
                 </p>
-                <div className="hero-cta hero-fade-in">
+                <div className="hero-cta" style={{justifyContent:'center', marginTop: 28}}>
                   <button
-                    className="btn btn-accent btn-large hero-cta-btn"
-                    onClick={() => setSection('portfolio')}
-                  >
-                    Meet Our Artists
-                  </button>
-                  <button
-                    className="btn btn-large hero-cta-btn"
+                    className="btn btn-accent btn-large hero-cta-btn home-explore-btn"
                     style={{
-                      marginLeft: 13, background: 'var(--cc-maroon)',
-                      color:'var(--cc-white)', border: '2px solid var(--cc-gold)'
+                      minWidth: 150,
+                      fontSize: "1.18rem",
+                      fontWeight:800,
+                      letterSpacing:'.005em',
                     }}
-                    onClick={() => setSection('orders')}
+                    onClick={() => setSection('gallery')}
                   >
-                    Get a Custom Piece
+                    Explore
                   </button>
                 </div>
               </div>
-              <div className="hero-art-bg hero-fade-in">
-                <img
-                  src={HERO_GRAPHIC}
-                  alt="Colorful artistic painting representing community creativity – CreativeConnect Hero Banner"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    maxWidth: 340,
-                    maxHeight: 340,
-                    aspectRatio: "4/3",
-                    borderRadius: 22,
-                    border: "2.5px solid var(--cc-gold)",
-                    boxShadow: "0 9px 32px #e8c51738, 0 2.5px 16px #8000001A",
-                    background: "linear-gradient(120deg, #fff 80%, #e8c51733 100%)",
-                    objectFit: "cover"
-                  }}
-                  loading="lazy"
-                  draggable="false"
-                />
-              </div>
             </section>
-
-            <FeatureHighlights setSection={setSection} />
           </main>
         );
     }
