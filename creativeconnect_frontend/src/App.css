@@ -212,16 +212,36 @@ a:hover, a:focus {
 /* Responsive tweaks for hero layout (removed art/smiley code) */
 @media (max-width: 900px) {
   .hero-modern,
-  .hero-modern-centered {
+  .hero-modern-centered,
+  .hero-art-layout {
     flex-direction: column !important;
     min-height: 280px;
     padding-top: 48px;
     padding-bottom: 8px;
     border-radius: 14px;
+    padding-left: 14px;
+    padding-right: 14px;
+    gap: 22px;
+    text-align: center;
+  }
+  .hero-art-bg {
+    width: 220px;
+    min-width: 140px;
+    max-width: 98vw;
+    height: 145px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-main-content {
+    align-items: center;
+    text-align: center;
+    padding-left: 0;
   }
 }
 @media (max-width: 700px) {
-  .hero, .hero-modern {
+  .hero, .hero-modern, .hero-art-layout {
     flex-direction: column;
     padding-top: 40px;
     padding-bottom: 13px;
@@ -230,11 +250,19 @@ a:hover, a:focus {
     min-height: unset;
     max-width: 98vw;
   }
+  .hero-art-bg {
+    width: 110px;
+    min-width: 90px;
+    max-width: 96vw;
+    height: 75px;
+    margin-bottom: 12px;
+  }
   .container { padding: 0 5px; }
   .title { font-size: 1.41rem; }
   .card { padding: 14px 6px; }
   .feature-grid-modern, .grid.grid-cols-3 { grid-template-columns: 1fr !important; }
   .footer { font-size: .92em; }
+  .hero-main-content { align-items: center; text-align: center; }
 }
 
 @media (max-width: 450px) {
