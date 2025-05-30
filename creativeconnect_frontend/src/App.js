@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import heroBanner from './assets/hero-banner.jpeg';
 
 import ArtistPortfolio from './components/ArtistPortfolio';
 import BehindTheScenes from './components/BehindTheScenes';
