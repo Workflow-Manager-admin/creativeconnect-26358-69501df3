@@ -77,45 +77,21 @@ function App() {
         return (
           <main>
             <section className="hero hero-modern hero-modern-centered">
-              <div className="hero-center-stack">
-                <div className="hero-art-bg hero-art-bg-centered">
-                  <img
-                    src={HERO_GRAPHIC}
-                    alt="Creative Connect Artistic Banner"
-                    className="hero-art-img"
-                    loading="lazy"
-                  />
-                  <div className="hero-overlay" />
-                </div>
-                {/* Centered animated smiley floating independently */}
-                <div className="smiley-floating-center-wrap">
-                  <span className="smiley-floating-center" role="img" aria-label="Welcome smiley">
-                    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" style={{display: "block"}} xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="28" cy="28" r="27" fill="var(--cc-gold)" stroke="#800000" strokeWidth="3"/>
-                      <ellipse cx="18.5" cy="24" rx="3.7" ry="4.8" fill="#800000" />
-                      <ellipse cx="37.3" cy="24" rx="3.7" ry="4.8" fill="#800000" />
-                      <path d="M16 34.5c2.6 4 7.7 4.9 12.1 3.9 4.4-1 6.8-4.5 7.9-6.2"
-                        stroke="#800000" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-                    </svg>
-                  </span>
-                </div>
+              <div>
+                {/* Removed image/smiley stack for cleaner center */}
               </div>
-              <div className="hero-main-content">
+              <div className="hero-main-content" style={{ margin: "0 auto", alignItems: "center", textAlign: "center" }}>
                 <div className="subtitle hero-fade-in" style={{fontWeight: 700, color: 'var(--cc-gold)'}}>Fuel your creativity</div>
-                <h1 className="title hero-fade-in" style={{fontSize: '3rem', marginBottom: 8, display: "flex", alignItems: "center", gap: 13 }}>
-                  <span className="logo-symbol" aria-label="Art">🎨</span>{" "}
+                <h1 className="title hero-fade-in" style={{
+                    fontSize: '3rem',
+                    marginBottom: 8,
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 13
+                  }}>
+                  <span className="logo-symbol" aria-label="Art">🎨</span>
                   <span style={{ color: 'var(--cc-maroon)', filter: 'drop-shadow(0px 2px 0 #ffd10490)' }}>
                     CreativeConnect
-                  </span>
-                  {/* Optionally show the smiley inline near the title for mobile */}
-                  <span className="smiley-animated smiley-inline" role="img" aria-label="Welcome smiley inline">
-                    <svg width="35" height="35" viewBox="0 0 56 56" fill="none" style={{display: "block"}} xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="28" cy="28" r="27" fill="var(--cc-gold)" stroke="#800000" strokeWidth="3"/>
-                      <ellipse cx="18.5" cy="24" rx="3.7" ry="4.8" fill="#800000" />
-                      <ellipse cx="37.3" cy="24" rx="3.7" ry="4.8" fill="#800000" />
-                      <path d="M16 34.5c2.6 4 7.7 4.9 12.1 3.9 4.4-1 6.8-4.5 7.9-6.2"
-                        stroke="#800000" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
-                    </svg>
                   </span>
                 </h1>
                 <p className="description hero-fade-in" style={{marginBottom: 18, maxWidth: 640}}>
