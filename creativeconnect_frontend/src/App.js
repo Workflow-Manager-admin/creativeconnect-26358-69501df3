@@ -37,16 +37,23 @@ function FeatureSection({ feature }) {
       const CustomOrders = require('./components/CustomOrders').default;
       return <CustomOrders />;
     case 'messages':
-      return (
-        <div className="card">
-          <div className="subtitle">Messaging System</div>
-          <h1 className="title">Connect & Communicate</h1>
-          <div className="description">
-            Send messages to artists and crafters for questions, inquiries, or discuss custom orders.
+      // Dynamically import our new MessagingSystem component
+      // Place here so hot reload works even before file is present
+      let MessagingSystem = null;
+      try {
+        MessagingSystem = require('./components/MessagingSystem').default;
+      } catch (err) {
+        return (
+          <div className="card">
+            <div className="subtitle">Messaging System</div>
+            <h1 className="title">Connect & Communicate</h1>
+            <div className="description">
+              The messaging component is loading or not yet implemented.
+            </div>
           </div>
-          <button className="btn btn-accent btn-large">Open Messenger</button>
-        </div>
-      );
+        );
+      }
+      return <MessagingSystem />;
     default:
       // Welcome screen if none selected (shouldn't be shown with default section)
       return (
