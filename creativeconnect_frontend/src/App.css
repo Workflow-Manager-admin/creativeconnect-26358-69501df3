@@ -117,174 +117,106 @@ a:hover, a:focus {
   flex-direction: column;
   background: var(--cc-white);
   border-radius: 22px;
-  min-height: 420px;
+  min-height: 430px;
   box-shadow: 0 8px 30px #80000010, 0 0.5px 1.5px #ffd10411;
   margin: 48px auto 0 auto;
-  max-width: 1180px;
+  max-width: 600px;
   overflow: hidden;
 }
 
-/* Added for hero with right-side artwork */
-.hero-art-layout {
-  display: flex;
-  flex-direction: row;
+/* Minimal homepage hero — stripped version (no side art, no extra animation, no cards) */
+.home-hero-stripped {
+  box-shadow: 0 8px 30px #80000010, 0 0.5px 1.5px #ffd10411;
+  margin-top: 64px;
+  min-height: 355px;
+  background: var(--cc-white);
+  flex-direction: column !important;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  gap: 38px;
-  text-align: left;
-  padding-left: 44px;
-  padding-right: 30px;
 }
-.hero-art-bg {
-  flex: 0 0 355px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-left: 28px;
-  margin-right: 0;
-  /* Visually important to keep image within rounded box for hero */
-}
-.hero-art-bg img {
-  border-radius: 22px;
-  border: 2.5px solid var(--cc-gold);
-  box-shadow: 0 9px 32px #ffd1043c, 0 2.5px 14px #80000016;
-  object-fit: cover;
-  background: linear-gradient(120deg, #fff 90%, #e8c51721 100%);
-  width: 100%;
-  max-width: 340px;
-  max-height: 340px;
-  aspect-ratio: 4/3;
-  transition: box-shadow 0.22s, filter 0.22s;
-}
-.hero-art-bg img:hover, .hero-art-bg img:focus {
-  box-shadow: 0 16px 48px #e8c51760, 0 4px 18px #80000024;
-  filter: brightness(1.01) saturate(1.1);
-}
-.hero-main-content {
-  flex: 1;
+
+.home-hero-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  z-index: 5;
-  margin: 0 auto;
-  text-align: left;
-  padding-left: 0;
-  min-width: 0;
-}
-
-/* Fade-in keeps full effect for both hero and art */
-.hero-fade-in {
-  opacity: 0;
-  animation: hero-fadeup 0.97s 0.18s forwards cubic-bezier(0.54, 0, 0.56, 1);
-}
-.hero-fade-in:nth-child(1) { animation-delay: 0.18s; }
-.hero-fade-in:nth-child(2) { animation-delay: 0.30s; }
-.hero-fade-in:nth-child(3) { animation-delay: 0.41s; }
-.hero-fade-in:nth-child(4) { animation-delay: 0.62s; }
-@keyframes hero-fadeup {
-  from { opacity: 0; transform: translateY(38px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-.hero-cta {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 13px;
-}
-.hero-cta-btn {
-  box-shadow: 0 2.5px 10px #ffd10423;
-  font-size: 1.14em;
-  padding-left: 28px;
-  padding-right: 28px;
-  font-weight: bold;
-  letter-spacing: 0.02em;
-  border-radius: 11px;
-  transition: box-shadow 0.18s;
-}
-.hero-cta-btn:focus, .hero-cta-btn:hover {
-  box-shadow: 0 5px 22px #ffd10431, 0 1.5px 6px #80000013;
-}
-.hero .subtitle {
-  color: var(--cc-gold);
-  font-weight: 800;
-  font-size: 1.17rem;
-  letter-spacing: 0.04em;
-}
-.hero .title {
-  font-size: 3rem;
-  font-weight: 900;
-  margin: 0;
-  color: var(--cc-maroon);
-  filter: drop-shadow(0px 1.8px 0 #ffd10455);
-}
-.hero .description {
-  font-size: 1.15rem;
-  line-height: 1.65;
-  color: var(--text-secondary);
-  max-width: 620px;
-  margin: 0 auto 16px 0;
+  justify-content: center;
+  width: 100%;
+  padding: 36px 18px 44px 18px;
 }
 
-/* Responsive tweaks for hero layout (removed art/smiley code) */
+.home-title {
+  margin-top: 0;
+  letter-spacing: .01em;
+}
+
+.home-subtitle {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.home-desc {
+  margin-top: 1.2em;
+  margin-bottom: 0.7em;
+  color: var(--text-secondary);
+}
+
+.home-explore-btn {
+  background: linear-gradient(90deg, var(--cc-maroon) 60%, #a12424 100%);
+  color: var(--cc-gold);
+  border: 3px solid var(--cc-gold);
+  box-shadow: 0 6px 24px #80000025, 0 2px 8px #ffd10422;
+  transition: background 0.16s, color 0.16s, box-shadow 0.17s;
+  padding-left: 46px !important;
+  padding-right: 46px !important;
+}
+.home-explore-btn:focus, .home-explore-btn:hover {
+  background: var(--cc-gold);
+  color: var(--cc-maroon);
+  border-color: var(--cc-maroon);
+  box-shadow: 0 12px 32px #ffd10439, 0 6px 16px #80000016;
+  outline: none;
+}
+
+/* Responsive fixes for new hero */
 @media (max-width: 900px) {
   .hero-modern,
   .hero-modern-centered,
-  .hero-art-layout {
+  .home-hero-stripped {
     flex-direction: column !important;
-    min-height: 280px;
-    padding-top: 48px;
-    padding-bottom: 8px;
-    border-radius: 14px;
-    padding-left: 14px;
-    padding-right: 14px;
-    gap: 22px;
+    min-height: 260px;
+    padding-top: 28px;
+    padding-bottom: 10px;
+    border-radius: 13px;
+    padding-left: 7px;
+    padding-right: 7px;
     text-align: center;
-  }
-  .hero-art-bg {
-    width: 220px;
-    min-width: 140px;
+    margin-top: 39px;
     max-width: 98vw;
-    height: 145px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
-  .hero-main-content {
-    align-items: center;
-    text-align: center;
-    padding-left: 0;
+  .home-hero-content {
+    padding: 28px 5vw 33px 5vw;
   }
+  .home-title { font-size: 2.1rem !important; }
 }
 @media (max-width: 700px) {
-  .hero, .hero-modern, .hero-art-layout {
+  .hero, .hero-modern, .home-hero-stripped {
     flex-direction: column;
-    padding-top: 40px;
-    padding-bottom: 13px;
-    border-radius: 10px;
-    margin-top: 18px;
+    padding-top: 18px;
+    padding-bottom: 12px;
+    border-radius: 9px;
+    margin-top: 14px;
     min-height: unset;
     max-width: 98vw;
   }
-  .hero-art-bg {
-    width: 110px;
-    min-width: 90px;
-    max-width: 96vw;
-    height: 75px;
-    margin-bottom: 12px;
-  }
   .container { padding: 0 5px; }
-  .title { font-size: 1.41rem; }
-  .card { padding: 14px 6px; }
-  .feature-grid-modern, .grid.grid-cols-3 { grid-template-columns: 1fr !important; }
-  .footer { font-size: .92em; }
-  .hero-main-content { align-items: center; text-align: center; }
+  .title, .home-title { font-size: 1.31rem !important; }
 }
 
 @media (max-width: 450px) {
-  .hero-main-content { padding-left: 2px; }
+  .home-hero-content { padding-left: 1vw; padding-right: 1vw; }
 }
+
+/* legacy/removed styles ... (art side hero, fade-in, art-bg, etc.) */
 
 /* --- Feature Cards Modern Section --- */
 .feature-grid-modern {
