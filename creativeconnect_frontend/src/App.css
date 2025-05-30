@@ -133,7 +133,107 @@ a:hover, a:focus {
   flex-direction: column !important;
   justify-content: center;
   align-items: center;
+  /* for smiley overflow */
+  position: relative;
+  overflow: visible;
 }
+
+/* --- ANIMATED SMILEYS ON HOMEPAGE --- */
+.hero-smiley-anim-area {
+  pointer-events: none; /* Don't block interactions */
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: visible;
+}
+.smiley {
+  position: absolute;
+  font-size: 2.55rem;
+  user-select: none;
+  opacity: 0.91;
+  filter: drop-shadow(0 2px 4px #ffd10422);
+  will-change: transform, opacity;
+  pointer-events: none;
+  transition: font-size 0.22s;
+  mix-blend-mode: luminosity;
+}
+
+@media (max-width: 700px) {
+  .smiley { font-size: 1.75rem; }
+}
+@media (max-width: 440px) {
+  .smiley { font-size: 1.15rem; }
+  .smiley-xs { font-size: 1.55rem; }
+}
+
+/* Floating upwards w/jitter */
+.smiley-float {
+  animation: float-smiley 7.8s ease-in-out infinite alternate;
+}
+@keyframes float-smiley {
+  0%   { transform: translateY(0) scale(1) rotate(-4deg);}
+  6%   { transform: translateY(-8px) scale(1.1) rotate(7deg);}
+  22%  { transform: translateY(-21px) scale(0.98) rotate(12deg);}
+  43%  { transform: translateY(-40px) scale(1.04) rotate(-3deg);}
+  62%  { transform: translateY(-50px) scale(1) rotate(5deg);}
+  75%  { transform: translateY(-57px) scale(1.09) rotate(-4deg);}
+  100% { transform: translateY(-65px) scale(1) rotate(0deg);}
+}
+
+/* Bouncing up/down */
+.smiley-bounce {
+  animation: bounce-smiley 3.1s cubic-bezier(0.32,1.64,0.38,1) infinite;
+}
+@keyframes bounce-smiley {
+  0%   { transform: translateY(0) scale(1);}
+  12%   { transform: translateY(-8px) scale(1.11);}
+  25%   { transform: translateY(-24px) scale(1.07);}
+  56%  { transform: translateY(-15px) scale(0.96);}
+  70%  { transform: translateY(3px) scale(1);}
+  100% { transform: translateY(0) scale(1);}
+}
+
+/* Slightly different bouncy vibe */
+.smiley-bounce2 {
+  animation: bounce2-smiley 2.6s cubic-bezier(0.52,1.24,0.64,0.98) infinite;
+}
+@keyframes bounce2-smiley {
+  0%   { transform: translateY(0) scale(1) rotate(0deg);}
+  10%  { transform: translateY(-9px) scale(1.1) rotate(-5deg);}
+  33%  { transform: translateY(-30px) scale(1.06) rotate(7deg);}
+  48%  { transform: translateY(-8px) scale(1.03) rotate(0deg);}
+  76%  { transform: translateY(10px) scale(1) rotate(-7deg);}
+  100% { transform: translateY(0) scale(1) rotate(0deg);}
+}
+
+/* Gently swaying horizontally */
+.smiley-sway {
+  animation: sway-smiley 5.7s cubic-bezier(.77,-0.06,.13,1.03) infinite;
+}
+@keyframes sway-smiley {
+  0%   { transform: translateX(0) scale(1) rotate(-4deg);}
+  18%  { transform: translateX(10px) scale(1.09) rotate(6deg);}
+  38%  { transform: translateX(-10px) scale(0.93) rotate(-7deg);}
+  54%  { transform: translateX(6px) scale(1.04) rotate(2deg);}
+  77%  { transform: translateX(-15px) scale(1) rotate(3deg);}
+  100% { transform: translateX(0) scale(1) rotate(-4deg);}
+}
+
+/* Zoom in-out gently */
+.smiley-zoom {
+  animation: zoom-smiley 4.9s cubic-bezier(.68,0,.28,1) infinite;
+}
+@keyframes zoom-smiley {
+  0%   { transform: scale(1);}
+  35%  { transform: scale(1.18);}
+  47%  { transform: scale(0.92);}
+  59%  { transform: scale(1.09);}
+  74%  { transform: scale(0.9);}
+  100% { transform: scale(1);}
+}
+
 
 .home-hero-content {
   display: flex;
