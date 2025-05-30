@@ -119,7 +119,7 @@ const ProductGallery = () => {
             >
               <img
                 src={prod.image}
-                alt={prod.title}
+                alt={`Product: ${prod.title} by ${prod.artist}`}
                 style={{
                   width: "100%",
                   height: 180,

@@ -115,7 +115,7 @@ const BehindTheScenes = () => {
                 <div style={{ display: "flex", alignItems: "center", marginBottom: 7 }}>
                   <img
                     src={story.avatar}
-                    alt={story.creator}
+                    alt={`Avatar of ${story.creator}`}
                     style={{
                       width: 39,
                       height: 39,
