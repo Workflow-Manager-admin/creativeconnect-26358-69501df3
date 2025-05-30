@@ -9,7 +9,7 @@ import MessagingSystem from './components/MessagingSystem';
 
 /*
   PUBLIC_INTERFACE
-  CreativeConnect Main App — Layout, Branding, and All Features
+  artistryhub Main App — Layout, Branding, and All Features
 
   - Maroon header (logo + navigation tabs)
   - White background for main content, shiny gold/yellow as accent for active tab/buttons
@@ -54,7 +54,7 @@ function App() {
             <section className="hero">
               <div className="subtitle">Welcome to</div>
               <h1 className="title">
-                <span className="logo-symbol" aria-label="Art">🎨</span> CreativeConnect
+                <span className="logo-symbol" aria-label="Art">🎨</span> artistryhub
               </h1>
               <p className="description">
                 The creative platform connecting artists, crafters, and admirers.<br />
@@ -115,7 +115,7 @@ function App() {
         <div className="container flex justify-between align-center">
           <div className="logo" style={{ cursor: "pointer" }} onClick={() => setSection('home')}>
             <span className="logo-symbol" aria-label="Art">🎨</span>
-            CreativeConnect
+            artistryhub
           </div>
           <nav className="navbar" style={{ flex: 1, marginLeft: 32 }}>
             <ul className="navbar-list flex" style={{ gap: 8, listStyle: "none", margin: 0, padding: 0 }}>
