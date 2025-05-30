@@ -76,24 +76,20 @@ function App() {
         // Enhanced Hero Section + animated features
         return (
           <main>
-            <section className="hero hero-modern">
-              <div className="hero-art-bg">
-                <img
-                  src={HERO_GRAPHIC}
-                  alt="Creative Connect Artistic Banner"
-                  className="hero-art-img"
-                  loading="lazy"
-                  style={{
-                    boxShadow: "0 8px 44px 0 #80000022, 0 0.5px 1.5px #ffd10455",
-                    borderRadius: "16px",
-                  }}
-                />
-                <div className="hero-overlay" />
-                {/* Animated Smiley layered to overlap art, only on desktop/large screens */}
-                <div className="smiley-animated-wrap">
-                  {/* SVG smiley for best animation and blending */}
-                  <span className="smiley-animated" role="img" aria-label="Welcome smiley">
-                    {/* SVG is accessible and works well with theme colors */}
+            <section className="hero hero-modern hero-modern-centered">
+              <div className="hero-center-stack">
+                <div className="hero-art-bg hero-art-bg-centered">
+                  <img
+                    src={HERO_GRAPHIC}
+                    alt="Creative Connect Artistic Banner"
+                    className="hero-art-img"
+                    loading="lazy"
+                  />
+                  <div className="hero-overlay" />
+                </div>
+                {/* Centered animated smiley floating independently */}
+                <div className="smiley-floating-center-wrap">
+                  <span className="smiley-floating-center" role="img" aria-label="Welcome smiley">
                     <svg width="56" height="56" viewBox="0 0 56 56" fill="none" style={{display: "block"}} xmlns="http://www.w3.org/2000/svg">
                       <circle cx="28" cy="28" r="27" fill="var(--cc-gold)" stroke="#800000" strokeWidth="3"/>
                       <ellipse cx="18.5" cy="24" rx="3.7" ry="4.8" fill="#800000" />
