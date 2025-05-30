@@ -32,16 +32,9 @@ function FeatureSection({ feature }) {
         </div>
       );
     case 'stories':
-      return (
-        <div className="card">
-          <div className="subtitle">Behind-the-Scenes Stories</div>
-          <h1 className="title">Discover Creative Journeys</h1>
-          <div className="description">
-            Dive into process photos, videos, and stories directly from the creators themselves.
-          </div>
-          <button className="btn btn-accent btn-large">See Stories</button>
-        </div>
-      );
+      // Show the real BehindTheScenes feed
+      const BehindTheScenes = require('./components/BehindTheScenes').default;
+      return <BehindTheScenes />;
     case 'gallery':
       // Show the actual gallery component
       const ProductGallery = require('./components/ProductGallery').default;
