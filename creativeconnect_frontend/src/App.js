@@ -33,16 +33,9 @@ function FeatureSection({ feature }) {
       const ProductGallery = require('./components/ProductGallery').default;
       return <ProductGallery />;
     case 'custom':
-      return (
-        <div className="card">
-          <div className="subtitle">Custom Orders</div>
-          <h1 className="title">Request a Custom Piece</h1>
-          <div className="description">
-            Looking for something personalized? Request and commission custom artwork or crafts from our creators.
-          </div>
-          <button className="btn btn-accent btn-large">Order Custom Work</button>
-        </div>
-      );
+      // Show the actual CustomOrders component (with messages for each order)
+      const CustomOrders = require('./components/CustomOrders').default;
+      return <CustomOrders />;
     case 'messages':
       return (
         <div className="card">
