@@ -80,21 +80,50 @@ function App() {
               <div className="hero-art-bg">
                 <img
                   src={HERO_GRAPHIC}
-                  alt="Creative Connect Graphic"
+                  alt="Creative Connect Artistic Banner"
                   className="hero-art-img"
                   loading="lazy"
+                  style={{
+                    boxShadow: "0 8px 44px 0 #80000022, 0 0.5px 1.5px #ffd10455",
+                    borderRadius: "16px",
+                  }}
                 />
                 <div className="hero-overlay" />
+                {/* Animated Smiley layered to overlap art, only on desktop/large screens */}
+                <div className="smiley-animated-wrap">
+                  {/* SVG smiley for best animation and blending */}
+                  <span className="smiley-animated" role="img" aria-label="Welcome smiley">
+                    {/* SVG is accessible and works well with theme colors */}
+                    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" style={{display: "block"}} xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="28" cy="28" r="27" fill="var(--cc-gold)" stroke="#800000" strokeWidth="3"/>
+                      <ellipse cx="18.5" cy="24" rx="3.7" ry="4.8" fill="#800000" />
+                      <ellipse cx="37.3" cy="24" rx="3.7" ry="4.8" fill="#800000" />
+                      <path d="M16 34.5c2.6 4 7.7 4.9 12.1 3.9 4.4-1 6.8-4.5 7.9-6.2"
+                        stroke="#800000" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                    </svg>
+                  </span>
+                </div>
               </div>
               <div className="hero-main-content">
                 <div className="subtitle hero-fade-in" style={{fontWeight: 700, color: 'var(--cc-gold)'}}>Fuel your creativity</div>
-                <h1 className="title hero-fade-in" style={{fontSize: '3rem', marginBottom: 8}}>
+                <h1 className="title hero-fade-in" style={{fontSize: '3rem', marginBottom: 8, display: "flex", alignItems: "center", gap: 13 }}>
                   <span className="logo-symbol" aria-label="Art">🎨</span>{" "}
                   <span style={{ color: 'var(--cc-maroon)', filter: 'drop-shadow(0px 2px 0 #ffd10490)' }}>
                     CreativeConnect
                   </span>
+                  {/* Optionally show the smiley inline near the title for mobile */}
+                  <span className="smiley-animated smiley-inline" role="img" aria-label="Welcome smiley inline">
+                    <svg width="35" height="35" viewBox="0 0 56 56" fill="none" style={{display: "block"}} xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="28" cy="28" r="27" fill="var(--cc-gold)" stroke="#800000" strokeWidth="3"/>
+                      <ellipse cx="18.5" cy="24" rx="3.7" ry="4.8" fill="#800000" />
+                      <ellipse cx="37.3" cy="24" rx="3.7" ry="4.8" fill="#800000" />
+                      <path d="M16 34.5c2.6 4 7.7 4.9 12.1 3.9 4.4-1 6.8-4.5 7.9-6.2"
+                        stroke="#800000" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+                    </svg>
+                  </span>
                 </h1>
                 <p className="description hero-fade-in" style={{marginBottom: 18, maxWidth: 640}}>
+                  <span style={{fontSize:"1.22em", marginRight:8}} role="img" aria-label="smile sparkle">✨</span>
                   A vibrant art & craft community welcoming artists, crafters, and admirers.<br />
                   <b style={{color: 'var(--cc-maroon)'}}>Discover</b> new artists, <b style={{color:'var(--cc-gold)'}}>explore</b> stories, and <b style={{color:'var(--cc-maroon)'}}>customize</b> your own art journey. Connect. Inspire. Create.
                 </p>
