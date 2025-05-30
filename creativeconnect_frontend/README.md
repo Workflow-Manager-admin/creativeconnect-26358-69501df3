@@ -1,11 +1,11 @@
-# Lightweight React Template for KAVIA
+# Lightweight React Template for ArtistryHub
 
 This project provides a minimal React template with a clean, modern UI and minimal dependencies.
 
 ## Features
 
 - **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
+- **Modern UI**: Clean, responsive design with ArtistryHub brand styling
 - **Fast**: Minimal dependencies for quick loading times
 - **Simple**: Easy to understand and modify
 
@@ -35,11 +35,15 @@ The main brand colors are defined as CSS variables in `src/App.css`:
 
 ```css
 :root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
+  --ah-maroon: #800000;
+  --ah-white: #ffffff;
+  --ah-gold: #e8c517;
+  --ah-dark: #1d1420;
+  --ah-grey-bg: #f9f6fa;
+  --ah-grey-border: #e4dddd;
+  --text-color: #232027;
+  --text-secondary: #765049;
+  --border-color: var(--ah-grey-border);
 }
 ```
 
