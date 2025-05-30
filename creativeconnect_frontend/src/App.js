@@ -7,6 +7,9 @@ import CustomOrders from './components/CustomOrders';
 import ProductGallery from './components/ProductGallery';
 import MessagingSystem from './components/MessagingSystem';
 
+import SparkleEffect from "./SparkleEffect";
+import AnimatedSmiley from "./AnimatedSmiley";
+
 /*
   PUBLIC_INTERFACE
   artistryhub Main App — Layout, Branding, and All Features
