@@ -3,7 +3,7 @@ import './App.css';
 
 /*
   PUBLIC_INTERFACE
-  The main CreativeConnect app layout.
+  The main ArtistryHub app layout.
   - Sticky maroon header with logo and navigation
   - White content section with basic routing/state for major features
   - Maroon footer with accent color
@@ -26,7 +26,7 @@ function FeatureSection({ feature }) {
           <div className="subtitle">Artist Portfolios</div>
           <h1 className="title">Explore Featured Creators</h1>
           <div className="description">
-            View personal portfolios showcasing artwork, crafts, bios, and more from CreativeConnect artists.
+            View personal portfolios showcasing artwork, crafts, bios, and more from ArtistryHub artists.
           </div>
           <button className="btn btn-accent btn-large">Browse Portfolios</button>
         </div>
