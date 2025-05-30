@@ -124,24 +124,38 @@ a:hover, a:focus {
   overflow: hidden;
 }
 
-.hero-modern-centered {
-  text-align: center !important;
-  justify-content: center !important;
-  align-items: center !important;
-  padding-bottom: 36px;
-  padding-top: 62px;
+/* Added for hero with right-side artwork */
+.hero-art-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 38px;
+  text-align: left;
+  padding-left: 44px;
+  padding-right: 30px;
 }
-
+.hero-art-bg {
+  flex: 0 0 355px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: 28px;
+  margin-right: 0;
+}
 .hero-main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   z-index: 5;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
   padding-left: 0;
+  min-width: 0;
 }
+
+/* Fade-in keeps full effect for both hero and art */
 .hero-fade-in {
   opacity: 0;
   animation: hero-fadeup 0.97s 0.18s forwards cubic-bezier(0.54, 0, 0.56, 1);

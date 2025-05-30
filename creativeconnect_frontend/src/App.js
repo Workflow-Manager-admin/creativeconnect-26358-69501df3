@@ -76,19 +76,17 @@ function App() {
         // Enhanced Hero Section + animated features
         return (
           <main>
-            <section className="hero hero-modern hero-modern-centered">
-              <div>
-                {/* Removed image/smiley stack for cleaner center */}
-              </div>
-              <div className="hero-main-content" style={{ margin: "0 auto", alignItems: "center", textAlign: "center" }}>
+            {/* Responsive: left=welcome, right=artwork, flex row on desktop */}
+            <section className="hero hero-modern hero-modern-centered hero-art-layout">
+              <div className="hero-main-content" style={{ margin: "0 auto" }}>
                 <div className="subtitle hero-fade-in" style={{fontWeight: 700, color: 'var(--cc-gold)'}}>Fuel your creativity</div>
                 <h1 className="title hero-fade-in" style={{
-                    fontSize: '3rem',
-                    marginBottom: 8,
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: 13
-                  }}>
+                  fontSize: '3rem',
+                  marginBottom: 8,
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 13
+                }}>
                   <span className="logo-symbol" aria-label="Art">🎨</span>
                   <span style={{ color: 'var(--cc-maroon)', filter: 'drop-shadow(0px 2px 0 #ffd10490)' }}>
                     CreativeConnect
@@ -117,6 +115,24 @@ function App() {
                     Get a Custom Piece
                   </button>
                 </div>
+              </div>
+              <div className="hero-art-bg hero-fade-in">
+                <img
+                  src={HERO_GRAPHIC}
+                  alt="Artistic colorful illustration" 
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    maxWidth: 340,
+                    maxHeight: 240,
+                    borderRadius: 16,
+                    border: "2.5px solid var(--cc-gold)",
+                    boxShadow: "0 6px 28px #e8c51730, 0 1.5px 8px #80000018",
+                    background: "linear-gradient(120deg, #fff 80%, #e8c51733 100%)",
+                  }}
+                  loading="lazy"
+                  draggable="false"
+                />
               </div>
             </section>
 
