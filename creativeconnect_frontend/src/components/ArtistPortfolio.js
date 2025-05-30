@@ -67,7 +67,137 @@ const mockArtists = [
   },
 ];
 
+/**
+ * Modal (inline simple) for artist full portfolio view.
+ * @param {object} props
+ */
+function ArtistPortfolioModal({ artist, onClose }) {
+  if (!artist) return null;
+
+  // Simulate full portfolio with all their known artworks and an expanded bio.
+  return (
+    <div
+      style={{
+        position: "fixed",
+        zIndex: 2000,
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        background: "rgba(29,20,32,0.60)",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        overflowY: "auto"
+      }}
+      aria-modal="true"
+      role="dialog"
+      tabIndex={-1}
+      onClick={onClose}
+    >
+      <div
+        className="card"
+        style={{
+          background: "var(--cc-white)",
+          borderRadius: 20,
+          boxShadow: "0 8px 30px #80000018, 0 1.5px 9px #ffd10422",
+          minWidth: 330,
+          maxWidth: 480,
+          width: "93vw",
+          maxHeight: "96vh",
+          overflowY: "auto",
+          position: "relative",
+          padding: "32px 24px 26px 24px",
+        }}
+        onClick={e => e.stopPropagation()} // prevent closing when clicking inside
+      >
+        <button
+          aria-label="Close"
+          onClick={onClose}
+          style={{
+            position: "absolute",
+            top: 14,
+            right: 14,
+            background: "var(--cc-maroon)",
+            color: "var(--cc-gold)",
+            border: "none",
+            borderRadius: "50%",
+            width: 36,
+            height: 36,
+            fontSize: "1.32em",
+            fontWeight: 900,
+            cursor: "pointer",
+            boxShadow: "0 1px 4px #80000022"
+          }}
+        >
+          &times;
+        </button>
+        <div style={{ display: "flex", alignItems: "center", marginBottom: 13, gap: 16, flexWrap: "wrap" }}>
+          <img
+            src={artist.avatar}
+            alt={`Portrait of artist ${artist.name}`}
+            style={{
+              width: 85,
+              height: 85,
+              borderRadius: "100%",
+              objectFit: "cover",
+              border: "3.2px solid var(--cc-gold)",
+              marginRight: 10,
+              boxShadow: "0 4px 16px #e8c51722"
+            }}
+          />
+          <div>
+            <div style={{ fontWeight: 800, fontSize: "1.39em", color: "var(--cc-maroon)", marginBottom: 2 }}>{artist.name}</div>
+            <div style={{ color: "var(--text-secondary)", fontWeight: 500, marginBottom: 6 }}>{artist.bio}</div>
+          </div>
+        </div>
+        <div style={{ fontWeight: 800, color: "var(--cc-gold)", marginBottom: 5, fontSize: "1.09em" }}>Gallery</div>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))",
+          gap: 13,
+          marginBottom: 16
+        }}>
+          {artist.artworks.map((art, idx) => (
+            <img
+              key={idx}
+              src={art}
+              alt={`Artwork ${idx + 1} by ${artist.name}`}
+              style={{
+                width: "100%",
+                minWidth: 0,
+                maxHeight: 116,
+                objectFit: "cover",
+                borderRadius: 10,
+                background: "#f9f6fa",
+                border: "1.9px solid var(--cc-maroon)",
+                boxShadow: "0 2px 8px #80000014"
+              }}
+            />
+          ))}
+        </div>
+        {/* Example: add more info if available, e.g. link, socials, etc */}
+        <div style={{
+          marginTop: 10,
+          color: "var(--text-secondary)",
+          background: "var(--cc-grey-bg)",
+          borderRadius: 9,
+          padding: "9px 14px",
+          fontSize: "1.02em"
+        }}>
+          <div>
+            <b>Contact / Collaboration:</b> <span style={{ color: "var(--cc-maroon)" }}>Demo only</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// PUBLIC_INTERFACE
 const ArtistPortfolio = () => {
+  const [modalArtist, setModalArtist] = useState(null);
+
   return (
     <section style={{ padding: "30px 0" }}>
       <div className="card" style={{ background: "var(--cc-white)" }}>
@@ -169,8 +299,8 @@ const ArtistPortfolio = () => {
                 <button
                   className="btn btn-accent btn-large"
                   style={{ width: "100%", fontWeight: 700, fontSize: "1.08em", marginTop: 8 }}
-                  disabled // Only for mock/demo
-                  title="Demo only"
+                  onClick={() => setModalArtist(artist)}
+                  title={`View full portfolio for ${artist.name}`}
                 >
                   View Full Portfolio
                 </button>
@@ -178,6 +308,10 @@ const ArtistPortfolio = () => {
             </div>
           ))}
         </div>
+        {/* Modal overlay for full portfolio */}
+        {modalArtist && (
+          <ArtistPortfolioModal artist={modalArtist} onClose={() => setModalArtist(null)} />
+        )}
       </div>
     </section>
   );
