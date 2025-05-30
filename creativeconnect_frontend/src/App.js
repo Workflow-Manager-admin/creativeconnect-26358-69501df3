@@ -76,6 +76,17 @@ function App() {
         return (
           <main>
             <section className="hero hero-modern hero-modern-centered home-hero-stripped">
+              {/* Animated floating smileys on the hero area */}
+              <div className="hero-smiley-anim-area" aria-hidden="true">
+                {/* Each smiley uses a different offset, animation and emoji */}
+                <span className="smiley smiley-bounce" style={{ left: '9%', top: '13%' }} role="img" aria-label="Smiling Face 1">😊</span>
+                <span className="smiley smiley-float" style={{ left: '87%', top: '23%' }} role="img" aria-label="Grinning Face">😄</span>
+                <span className="smiley smiley-sway" style={{ left: '61%', top: '5%' }} role="img" aria-label="Winking Face">😉</span>
+                <span className="smiley smiley-zoom" style={{ left: '19%', top: '74%' }} role="img" aria-label="Star Eyes">🤩</span>
+                <span className="smiley smiley-bounce2" style={{ left: '58%', top: '85%' }} role="img" aria-label="Heart Eyes">😍</span>
+                {/* mobile-optimized smiley (shows up on XS screens as well) */}
+                <span className="smiley smiley-sway smiley-xs" style={{ left: '70%', top: '77%' }} role="img" aria-label="Blushing Face">☺️</span>
+              </div>
               <div className="home-hero-content">
                 <div className="hero-img-wrap">
                   <img
