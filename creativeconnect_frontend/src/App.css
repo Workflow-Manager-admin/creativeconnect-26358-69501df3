@@ -124,17 +124,6 @@ a:hover, a:focus {
   overflow: hidden;
 }
 
-/* Centered hero stack (image + smiley) */
-.hero-center-stack {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-bottom: 26px;
-}
-
 .hero-modern-centered {
   text-align: center !important;
   justify-content: center !important;
@@ -143,148 +132,15 @@ a:hover, a:focus {
   padding-top: 62px;
 }
 
-.hero-art-bg,
-.hero-art-bg-centered {
-  width: 260px;
-  min-width: 120px;
-  height: 175px;
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  margin: 0 auto 0 auto;
-  z-index: 1;
-}
-
-.hero-art-img {
-  width: 99%;
-  height: 145px;
-  max-width: 270px;
-  object-fit: contain;
-  object-position: center bottom;
-  mix-blend-mode: multiply;
-  filter: hue-rotate(-9deg) brightness(1.13) saturate(1.14);
-  z-index: 1;
-  margin-top: 10px;
-  margin-left: 0;
-  border-radius: 16px;
-  box-shadow: 0 8px 40px #80000016, 0 1.5px 8px #ffd10417;
-}
-
-/* Centered smiley floating independently */
-.smiley-floating-center-wrap {
-  width: 72px;
-  height: 72px;
-  margin: -30px auto 0 auto;
-  position: relative;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-.smiley-floating-center {
-  display: inline-block;
-  animation: smiley-float 2.35s ease-in-out infinite alternate;
-  filter: drop-shadow(0 6px 18px #80000017) drop-shadow(0 1.5px 4px #e8c51788);
-  will-change: transform, filter;
-  background: var(--cc-white);
-  border-radius: 50%;
-  box-shadow: 0 4px 26px #ffd10422;
-  padding: 2.5px;
-  transition: filter 0.19s;
-}
-@keyframes smiley-float {
-  0%   { transform: translateY(0) scale(1.01) rotate(2deg);}
-  20%  { transform: translateY(-14px) scale(1.04) rotate(-5deg);}
-  40%  { transform: translateY(-8px) scale(1.07) rotate(8deg);}
-  60%  { transform: translateY(7px) scale(1.01) rotate(-7deg);}
-  80%  { transform: translateY(-8px) scale(1.045) rotate(2deg);}
-  100% { transform: translateY(0) scale(1) rotate(0deg);}
-}
-
-/* Hide previous right side smiley and image positioning */
-.smiley-animated-wrap {
-  display: none !important;
-}
-.hero-art-bg, .hero-art-bg-centered {
-  align-items: flex-end;
-  justify-content: center;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* Responsive tweaks for hero/art/smiley centralization and spacing */
-@media (max-width: 900px) {
-  .hero-modern,
-  .hero-modern-centered {
-    flex-direction: column !important;
-    min-height: 280px;
-    padding-top: 48px;
-    padding-bottom: 8px;
-    border-radius: 14px;
-  }
-  .hero-center-stack {
-    margin-bottom: 13px;
-  }
-  .hero-art-bg, .hero-art-bg-centered {
-    width: 138px;
-    min-width: 80px;
-    height: 90px;
-    margin: 0 auto !important;
-  }
-  .hero-art-img {
-    height: 67px;
-    max-width: 140px;
-    margin-top: 5px;
-  }
-  .smiley-floating-center-wrap {
-    width: 38px;
-    height: 38px;
-    margin-top: -16px;
-  }
-  .smiley-floating-center svg {
-    width: 35px !important;
-    height: 35px !important;
-  }
-}
-
-.smiley-inline {
-  display: none;
-  vertical-align: middle;
-  margin-left: 6px;
-}
-@media (max-width: 900px) {
-  .smiley-inline {
-    display: inline-block !important;
-    animation: smiley-wave 2.25s infinite cubic-bezier(0.62,0,0.64,1.12);
-    margin-left: 5px;
-  }
-}
-@keyframes smiley-wave {
-  0%, 100% { transform: rotate(0deg);}
-  13% { transform: rotate(-16deg);}
-  28% { transform: rotate(14deg);}
-  43% { transform: rotate(-11deg);}
-  58% { transform: rotate(8deg);}
-  75% { transform: rotate(0deg);}
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(ellipse at 85% 80%, #ffd10422 83%, transparent 100%);
-  z-index: 2;
-  pointer-events: none;
-  border-radius: 20px;
-}
 .hero-main-content {
   flex: 1;
-  padding-left: 48px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   z-index: 5;
+  margin: 0 auto;
+  text-align: center;
+  padding-left: 0;
 }
 .hero-fade-in {
   opacity: 0;
@@ -337,6 +193,38 @@ a:hover, a:focus {
   color: var(--text-secondary);
   max-width: 620px;
   margin: 0 auto 16px 0;
+}
+
+/* Responsive tweaks for hero layout (removed art/smiley code) */
+@media (max-width: 900px) {
+  .hero-modern,
+  .hero-modern-centered {
+    flex-direction: column !important;
+    min-height: 280px;
+    padding-top: 48px;
+    padding-bottom: 8px;
+    border-radius: 14px;
+  }
+}
+@media (max-width: 700px) {
+  .hero, .hero-modern {
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 13px;
+    border-radius: 10px;
+    margin-top: 18px;
+    min-height: unset;
+    max-width: 98vw;
+  }
+  .container { padding: 0 5px; }
+  .title { font-size: 1.41rem; }
+  .card { padding: 14px 6px; }
+  .feature-grid-modern, .grid.grid-cols-3 { grid-template-columns: 1fr !important; }
+  .footer { font-size: .92em; }
+}
+
+@media (max-width: 450px) {
+  .hero-main-content { padding-left: 2px; }
 }
 
 /* --- Feature Cards Modern Section --- */
