@@ -98,7 +98,7 @@ function App() {
       <header className="header" style={{ position: 'sticky', top: 0, zIndex: 110 }}>
         <div className="container flex justify-between align-center" style={{ minHeight: 62 }}>
           <div className="logo">
-            <span className="logo-symbol" aria-label="CC Logo">✦</span> CreativeConnect
+            <span className="logo-symbol" aria-label="AH Logo">✦</span> ArtistryHub
           </div>
           <nav>
             <ul className="flex" style={{ listStyle: 'none', gap: 8, margin: 0, padding: 0 }}>
@@ -127,7 +127,7 @@ function App() {
 
       {/* FOOTER */}
       <footer className="footer">
-        &copy; {new Date().getFullYear()} CreativeConnect &middot; Powered by Art & Craft
+        &copy; {new Date().getFullYear()} ArtistryHub &middot; Powered by Art & Craft
       </footer>
     </div>
   );
