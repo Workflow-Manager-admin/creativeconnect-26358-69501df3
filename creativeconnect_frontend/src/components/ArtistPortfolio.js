@@ -116,7 +116,7 @@ const ArtistPortfolio = () => {
               <div style={{ display: "flex", alignItems: "center", padding: "18px 18px 10px 18px", gap: 16 }}>
                 <img
                   src={artist.avatar}
-                  alt={artist.name}
+                  alt={`Portrait of artist ${artist.name}`}
                   style={{
                     width: 72,
                     height: 72,
@@ -151,7 +151,7 @@ const ArtistPortfolio = () => {
                     <img
                       key={idx}
                       src={art}
-                      alt={`Artwork ${idx + 1}`}
+                      alt={`Artwork ${idx + 1} by ${artist.name}`}
                       style={{
                         width: 67,
                         height: 67,

@@ -101,7 +101,7 @@ const BehindTheScenes = () => {
               }}>
                 <img
                   src={story.image}
-                  alt={story.creator + " story"}
+                  alt={`Behind the scenes photo from ${story.creator}`}
                   style={{
                     width: "100%",
                     height: 130,

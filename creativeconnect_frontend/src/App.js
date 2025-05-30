@@ -118,7 +118,7 @@ function App() {
               <div className="hero-art-bg hero-fade-in">
                 <img
                   src={HERO_GRAPHIC}
-                  alt="CreativeConnect – Community hero art"
+                  alt="Colorful artistic painting representing community creativity – CreativeConnect Hero Banner"
                   style={{
                     width: "100%",
                     height: "auto",
