@@ -77,6 +77,26 @@ function App() {
           <main>
             <section className="hero hero-modern hero-modern-centered home-hero-stripped">
               <div className="home-hero-content">
+                <div className="hero-img-wrap">
+                  <img
+                    src={HERO_GRAPHIC}
+                    alt="CreativeConnect Hero Banner"
+                    className="home-hero-img"
+                    style={{
+                      width: "min(340px, 94vw)",
+                      height: "auto",
+                      maxHeight: "222px",
+                      objectFit: "contain",
+                      display: "block",
+                      margin: "0 auto 24px auto",
+                      boxShadow: "0 6px 22px #80000018, 0 2px 8px #ffd10422",
+                      borderRadius: "18px",
+                      border: "2.5px solid var(--cc-maroon)",
+                      background: "linear-gradient(90deg,#ffeaa8 25%, #fffbe2 100%)",
+                      filter: "drop-shadow(0px 2px 0 #ffd10433)",
+                    }}
+                  />
+                </div>
                 <h1
                   className="title home-title"
                   style={{

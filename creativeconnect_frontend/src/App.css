@@ -144,6 +144,37 @@ a:hover, a:focus {
   padding: 36px 18px 44px 18px;
 }
 
+/* --- HERO IMAGE CSS --- */
+.hero-img-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.home-hero-img {
+  width: min(340px, 94vw);
+  height: auto;
+  max-height: 222px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 22px #80000018, 0 2px 8px #ffd10422;
+  border-radius: 18px;
+  border: 2.5px solid var(--cc-maroon);
+  background: linear-gradient(90deg,#ffeaa8 25%, #fffbe2 100%);
+  filter: drop-shadow(0px 2px 0 #ffd10433);
+}
+
+/* Responsive for very small screens */
+@media (max-width: 700px) {
+  .home-hero-img {
+    width: min(90vw, 230px);
+    max-height: 125px;
+    margin-bottom: 17px;
+    border-radius: 11px;
+  }
+}
+
 .home-title {
   margin-top: 0;
   letter-spacing: .01em;
