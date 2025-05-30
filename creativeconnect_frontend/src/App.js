@@ -21,16 +21,9 @@ const FEATURES = [
 function FeatureSection({ feature }) {
   switch (feature) {
     case 'portfolio':
-      return (
-        <div className="card">
-          <div className="subtitle">Artist Portfolios</div>
-          <h1 className="title">Explore Featured Creators</h1>
-          <div className="description">
-            View personal portfolios showcasing artwork, crafts, bios, and more from ArtistryHub artists.
-          </div>
-          <button className="btn btn-accent btn-large">Browse Portfolios</button>
-        </div>
-      );
+      // Show the actual ArtistPortfolio component
+      const ArtistPortfolio = require('./components/ArtistPortfolio').default;
+      return <ArtistPortfolio />;
     case 'stories':
       // Show the real BehindTheScenes feed
       const BehindTheScenes = require('./components/BehindTheScenes').default;
