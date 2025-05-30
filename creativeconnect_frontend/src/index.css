@@ -1,19 +1,43 @@
-/* Base resets and coding styles */
-* {
+/* CSS Resets & Base Styles for CreativeConnect */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  font-family: inherit;
+  background: inherit;
+  color: inherit;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Remove legacy outline for focus and let buttons/links set their own */
+:focus {
+  outline: none;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', 'Liberation Mono', monospace;
+  font-size: 1em;
+  background: #fff9e3;
+  border-radius: 4px;
+  padding: 2px 5px;
+  color: #ba8700;
+}
+
+/* Remove default button outline in Chrome */
+button:focus { outline: none; }
+
+/* Remove blue link highlight on mobile */
+a, button, input, textarea {
+  -webkit-tap-highlight-color: transparent;
 }
