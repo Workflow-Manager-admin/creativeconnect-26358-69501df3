@@ -48,60 +48,48 @@ function App() {
       case 'messages':
         return <MessagingSystem />;
       default:
-        // Home section: engaging intro; summary of features and who it's by
+        // Home section: only succinct intro + centered royalty-free image
         return (
           <main>
-            <section className="hero">
-              <div className="subtitle">Welcome to</div>
-              <h1 className="title">
+            <section className="hero" style={{ minHeight: "calc(72vh - 110px)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
+              <div className="subtitle" style={{ fontSize: "1.25rem", marginBottom: 5, color: "var(--cc-maroon)" }}>
+                Welcome to artistryhub
+              </div>
+              <h1 className="title" style={{ marginTop: 0, marginBottom: 12 }}>
                 <span className="logo-symbol" aria-label="Art">🎨</span> artistryhub
               </h1>
-              <p className="description">
-                The creative platform connecting artists, crafters, and admirers.<br />
-                Discover unique artworks, explore creative journeys, and request custom-crafted pieces—all in one inspiring community.
+              <p className="description" style={{ marginBottom: 28, fontSize: "1.17rem", maxWidth: 500 }}>
+                Your space to showcase, discover, and connect through art &amp; craftsmanship.
+                <br />
+                Where creativity finds its community.
               </p>
-              <div style={{ margin: '22px 0 0 0' }}>
-                <button
-                  className="btn btn-accent btn-large"
-                  onClick={() => setSection('portfolio')}
-                >Explore Artists</button>
-              </div>
-            </section>
-            <section className="container" style={{ marginTop: 38 }}>
-              <h2 className="subtitle" style={{ color: 'var(--cc-maroon)', textAlign: 'center' }}>
-                Platform Features
-              </h2>
-              <div className="grid grid-cols-3" style={{ gap: 24, marginTop: 18 }}>
-                <FeatureCard
-                  title="Artist Portfolios"
-                  desc="Browse personal portfolios, discover creators & inspirations."
-                  icon="🖼️"
-                  onGo={() => setSection('portfolio')}
+              {/* Centered lively/craft art image from Unsplash, with attribution */}
+              <div style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+              }}>
+                <img
+                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=702&q=80"
+                  alt="Potter at work, artistic process (Photo by Quino Al, Unsplash)"
+                  style={{
+                    maxWidth: "400px",
+                    maxHeight: "340px",
+                    width: "100%",
+                    borderRadius: "16px",
+                    boxShadow: "0 4px 16px rgba(128,0,0,0.09)",
+                    marginBottom: "8px",
+                    objectFit: "cover"
+                  }}
                 />
-                <FeatureCard
-                  title="Behind-the-Scenes"
-                  desc="Read stories and see process photos direct from the studio."
-                  icon="🛠️"
-                  onGo={() => setSection('stories')}
-                />
-                <FeatureCard
-                  title="Custom Orders"
-                  desc="Collaborate for unique, made-to-order craft pieces with messaging."
-                  icon="✨"
-                  onGo={() => setSection('orders')}
-                />
-                <FeatureCard
-                  title="Product Gallery"
-                  desc="Explore artworks and crafts for inspiration or purchase."
-                  icon="🛒"
-                  onGo={() => setSection('gallery')}
-                />
-                <FeatureCard
-                  title="Messaging"
-                  desc="Chat with artists and buyers—share ideas, coordinate orders."
-                  icon="💬"
-                  onGo={() => setSection('messages')}
-                />
+                <span style={{
+                  fontSize: "0.98em",
+                  color: "var(--text-secondary)",
+                  marginTop: "4px"
+                }}>
+                  Photo by <a href="https://unsplash.com/@quinoal" target="_blank" rel="noopener noreferrer" style={{ color: "var(--cc-maroon)", textDecoration: "underline" }}>Quino Al</a> on <a href="https://unsplash.com/photos/photo-1506744038136-46273834b3fb" target="_blank" rel="noopener noreferrer" style={{ color: "var(--cc-maroon)", textDecoration: "underline" }}>Unsplash</a>
+                </span>
               </div>
             </section>
           </main>
