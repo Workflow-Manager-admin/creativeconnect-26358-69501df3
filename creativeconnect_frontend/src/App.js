@@ -9,12 +9,14 @@ import MessagingSystem from './components/MessagingSystem';
 
 /*
   PUBLIC_INTERFACE
-  ArtistryHub Main App — Full Layout Version (Navigation + All Feature Sections)
+  CreativeConnect Main App — Layout, Branding, and All Features
 
-  - Navigation bar with section navigation
-  - Homepage with welcome banner and feature highlights
-  - Support for individual feature sections
-  - Footer branding
+  - Maroon header (logo + navigation tabs)
+  - White background for main content, shiny gold/yellow as accent for active tab/buttons
+  - Modular loading of all 5 core features, no router; state-based navigation
+  - Maroon footer with gold text
+  - Responsive, modern, accessible
+  - Brand: primary=maroon, secondary=white, accent=gold (#e8c517)
 */
 
 const SECTIONS = [
@@ -52,7 +54,7 @@ function App() {
             <section className="hero">
               <div className="subtitle">Welcome to</div>
               <h1 className="title">
-                <span className="logo-symbol" aria-label="Art">🎨</span> ArtistryHub
+                <span className="logo-symbol" aria-label="Art">🎨</span> CreativeConnect
               </h1>
               <p className="description">
                 The creative platform connecting artists, crafters, and admirers.<br />
@@ -113,7 +115,7 @@ function App() {
         <div className="container flex justify-between align-center">
           <div className="logo" style={{ cursor: "pointer" }} onClick={() => setSection('home')}>
             <span className="logo-symbol" aria-label="Art">🎨</span>
-            ArtistryHub
+            CreativeConnect
           </div>
           <nav className="navbar" style={{ flex: 1, marginLeft: 32 }}>
             <ul className="navbar-list flex" style={{ gap: 8, listStyle: "none", margin: 0, padding: 0 }}>
@@ -143,7 +145,7 @@ function App() {
       </header>
       <div style={{ flex: 1 }}>{renderSection()}</div>
       <footer className="footer">
-        &copy; {new Date().getFullYear()} ArtistryHub &mdash; Connecting Creators &amp; Admirers
+        &copy; {new Date().getFullYear()} CreativeConnect &mdash; Connecting Creators &amp; Admirers
       </footer>
     </div>
   );
