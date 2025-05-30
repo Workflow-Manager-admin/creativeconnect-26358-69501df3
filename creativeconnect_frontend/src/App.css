@@ -1,5 +1,5 @@
 :root {
-  /* ArtistryHub Branding Colors */
+  /* CreativeConnect Branding Colors */
   --cc-maroon: #800000;
   --cc-white: #ffffff;
   --cc-gold: #e8c517;
@@ -15,14 +15,14 @@
   /* Button Colors */
   --btn-primary-bg: var(--cc-maroon);
   --btn-primary-text: var(--cc-white);
-  --btn-primary-hover-bg: #9c2626;
+  --btn-primary-hover-bg: #a12424;
   --btn-accent-bg: var(--cc-gold);
   --btn-accent-text: #463a00;
   --btn-accent-hover-bg: #ffe25f;
 
   /* Card and layout */
   --card-bg: var(--cc-white);
-  --card-shadow: 0 2px 8px rgba(128,0,0,0.05), 0 0.5px 1.5px rgba(0,0,0,0.05);
+  --card-shadow: 0 3px 18px rgba(128,0,0,0.07), 0 0.5px 2px rgba(0,0,0,0.04);
 }
 
 body {
@@ -58,86 +58,194 @@ a:hover, a:focus {
   background: var(--cc-maroon);
   color: var(--cc-white);
   padding: 0;
-  min-height: 60px;
+  min-height: 62px;
   display: flex;
   align-items: center;
-  border-bottom: 3px solid var(--cc-gold);
+  border-bottom: 4px solid var(--cc-gold);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 3px 6px rgba(128,0,0,0.06);
+  box-shadow: 0 3px 9px rgba(128,0,0,0.08);
 }
 
 .footer {
   background: var(--cc-maroon);
   color: var(--cc-gold);
   text-align: center;
-  padding: 20px 0 12px 0;
-  border-top: 3px solid var(--cc-gold);
+  padding: 24px 0 14px 0;
+  border-top: 4px solid var(--cc-gold);
   font-size: 1rem;
-  font-family: inherit;
   margin-top: auto;
+  font-family: inherit;
 }
 
 /* Logo */
 .logo {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.52rem;
+  font-weight: 800;
   display: flex;
   align-items: center;
-  gap: 10px;
-  letter-spacing: 0.02em;
+  gap: 9px;
+  letter-spacing: 0.03em;
   color: var(--cc-gold);
   user-select: none;
+  filter: drop-shadow(0px 1.7px 0 #ffd10460);
 }
 .logo-symbol {
-  font-size: 1.5em;
+  font-size: 1.6em;
   color: var(--cc-gold);
   font-family: 'Georgia', serif;
 }
 
 .container {
-  max-width: 1060px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 30px;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* --- HERO/MAIN Banner --- */
-.hero {
-  padding-top: 120px;
-  padding-bottom: 64px;
-  text-align: center;
+/* --- HERO/MAIN Banner Modern --- */
+.hero-modern {
+  position: relative;
+  padding-top: 95px;
+  padding-bottom: 48px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  background: var(--cc-white);
+  border-radius: 22px;
+  min-height: 360px;
+  box-shadow: 0 8px 30px #80000010, 0 0.5px 1.5px #ffd10411;
+  margin: 48px auto 0 auto;
+  max-width: 1180px;
+  overflow: hidden;
+}
+.hero-art-bg {
+  flex: 0 0 320px;
+  width: 320px;
+  min-width: 220px;
+  height: 248px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  z-index: 0;
+}
+.hero-art-img {
+  width: 99%;
+  height: 220px;
+  max-width: 340px;
+  object-fit: contain;
+  object-position: bottom right;
+  mix-blend-mode: multiply;
+  filter: hue-rotate(-9deg) brightness(1.13) saturate(1.14);
+  z-index: 1;
+  margin-top: 18px;
+  margin-left: 8px;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at 85% 80%, #ffd10422 83%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 20px;
+}
+.hero-main-content {
+  flex: 1;
+  padding-left: 48px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 24px;
-  background: var(--cc-white);
-  border-radius: 18px;
-  box-shadow: var(--card-shadow);
-  margin: 40px auto 0 auto;
+  align-items: flex-start;
+  z-index: 5;
 }
-
-.subtitle {
-  color: var(--cc-maroon);
-  font-weight: 600;
-  font-size: 1.13rem;
+.hero-fade-in {
+  opacity: 0;
+  animation: hero-fadeup 0.97s 0.18s forwards cubic-bezier(0.54, 0, 0.56, 1);
+}
+.hero-fade-in:nth-child(1) { animation-delay: 0.18s; }
+.hero-fade-in:nth-child(2) { animation-delay: 0.30s; }
+.hero-fade-in:nth-child(3) { animation-delay: 0.41s; }
+.hero-fade-in:nth-child(4) { animation-delay: 0.62s; }
+@keyframes hero-fadeup {
+  from { opacity: 0; transform: translateY(38px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.hero-cta {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 13px;
+}
+.hero-cta-btn {
+  box-shadow: 0 2.5px 10px #ffd10423;
+  font-size: 1.14em;
+  padding-left: 28px;
+  padding-right: 28px;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  border-radius: 11px;
+  transition: box-shadow 0.18s;
+}
+.hero-cta-btn:focus, .hero-cta-btn:hover {
+  box-shadow: 0 5px 22px #ffd10431, 0 1.5px 6px #80000013;
+}
+.hero .subtitle {
+  color: var(--cc-gold);
+  font-weight: 800;
+  font-size: 1.17rem;
   letter-spacing: 0.04em;
 }
-.title {
-  font-size: 3.2rem;
-  font-weight: 800;
-  line-height: 1.1;
+.hero .title {
+  font-size: 3rem;
+  font-weight: 900;
   margin: 0;
   color: var(--cc-maroon);
+  filter: drop-shadow(0px 1.8px 0 #ffd10455);
 }
-.description {
-  font-size: 1.07rem;
+.hero .description {
+  font-size: 1.15rem;
   line-height: 1.65;
   color: var(--text-secondary);
   max-width: 620px;
-  margin: 0 auto 16px auto;
+  margin: 0 auto 16px 0;
+}
+
+/* --- Feature Cards Modern Section --- */
+.feature-grid-modern {
+  margin-top: 0 !important;
+  gap: 27px !important;
+}
+.feature-card-modern {
+  box-shadow: var(--card-shadow), 0 6px 32px #e8c51714;
+  border-radius: 17px;
+  background: var(--cc-white);
+  transition: 
+    transform 0.22s cubic-bezier(0.42,0,0.45,1),
+    box-shadow 0.17s cubic-bezier(0.38,1.72,0.43,0.8),
+    border 0.16s;
+  cursor: pointer;
+  will-change: transform, box-shadow;
+  position: relative;
+  z-index: 1;
+}
+.feature-card-modern:hover,
+.feature-card-modern:focus-within {
+  transform: translateY(-6px) scale(1.025) rotate(-0.6deg);
+  box-shadow: 0 16px 38px #e8c51729, 0 3px 10px #80000018;
+  border: 1.7px solid var(--cc-gold);
+}
+.feature-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feature-card-modern button:focus {
+  outline: 2.5px solid var(--cc-gold);
 }
 
 /* -------- BUTTONS --------- */
@@ -146,11 +254,11 @@ a:hover, a:focus {
   background-color: var(--btn-primary-bg);
   color: var(--btn-primary-text);
   border: none;
-  border-radius: 6px;
+  border-radius: 7px;
   outline: none;
   padding: 12px 28px;
   font-size: 1.09rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.01em;
   box-shadow: 0 2px 9px rgba(128,0,0,0.04);
   cursor: pointer;
@@ -158,8 +266,8 @@ a:hover, a:focus {
 }
 .btn:active,
 .btn:focus {
-  outline: 2px solid var(--cc-gold);
-  box-shadow: 0 1px 3px rgba(232,197,23,0.15);
+  outline: 2.5px solid var(--cc-gold);
+  box-shadow: 0 1.2px 3.5px rgba(232,197,23,0.15);
 }
 .btn:hover {
   background: var(--btn-primary-hover-bg);
@@ -169,20 +277,22 @@ a:hover, a:focus {
   background: var(--btn-accent-bg);
   color: var(--btn-accent-text);
 }
-.btn-accent:hover {
+.btn-accent:hover,
+.btn-accent:focus {
   background: var(--btn-accent-hover-bg);
+  color: var(--cc-dark);
 }
 
 .btn-large {
   padding: 16px 40px;
   font-size: 1.22rem;
-  border-radius: 8px;
+  border-radius: 11px;
 }
 
 /* --------- CARDS ---------- */
 .card {
   background: var(--card-bg);
-  border-radius: 15px;
+  border-radius: 14px;
   box-shadow: var(--card-shadow);
   padding: 32px 28px;
   margin: 18px 0;
@@ -190,11 +300,10 @@ a:hover, a:focus {
   transition: box-shadow 0.18s, border 0.18s;
 }
 .card:hover {
-  box-shadow: 0 6px 18px rgba(128,0,0,0.12);
-  border: 1.5px solid var(--cc-gold);
+  box-shadow: 0 6px 24px #80000018, 0 3px 11px #e8c51714;
+  border: 1.6px solid var(--cc-gold);
 }
 
-/* ------ GRID/LAYOUT UTILITIES ------ */
 .grid {
   display: grid;
   gap: 28px;
@@ -205,15 +314,11 @@ a:hover, a:focus {
 .grid-cols-3 {
   grid-template-columns: repeat(3, 1fr);
 }
-.flex {
-  display: flex;
-}
-.justify-between {
-  justify-content: space-between;
-}
-.align-center {
-  align-items: center;
-}
+
+/* Utility & Responsive Tweaks */
+.flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }
 
 .mt-2 { margin-top: 8px; }
 .mt-4 { margin-top: 16px; }
@@ -225,7 +330,6 @@ a:hover, a:focus {
 .pb-4 { padding-bottom: 16px; }
 .p-4 { padding: 16px; }
 
-/* Utility typography */
 .text-maroon { color: var(--cc-maroon); }
 .text-gold { color: var(--cc-gold); }
 .text-accent { color: var(--cc-gold); }
@@ -248,22 +352,32 @@ a:hover, a:focus {
 }
 
 /* Responsive tweaks */
+@media (max-width: 900px) {
+  .feature-grid-modern, .grid.grid-cols-3 { grid-template-columns: 1fr 1fr !important; }
+  .hero-modern { flex-direction: column; min-height: 280px; padding-top: 56px; }
+  .hero-art-bg { width: 220px; min-width: 160px; height: 145px; margin: 0 auto 0 0;}
+  .hero-main-content { padding-left: 18px; align-items: flex-start; }
+}
 @media (max-width: 700px) {
-  .hero {
-    padding-top: 60px;
-    padding-bottom: 24px;
+  .hero, .hero-modern {
+    flex-direction: column;
+    padding-top: 40px;
+    padding-bottom: 13px;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 18px;
+    min-height: unset;
+    max-width: 98vw;
   }
-  .container {
-    padding: 0 10px;
-  }
-  .title {
-    font-size: 2rem;
-  }
-  .card {
-    padding: 18px 8px;
-  }
+  .hero-art-bg { width: 110px; min-width: 90px; height: 78px; }
+  .container { padding: 0 5px; }
+  .title { font-size: 1.41rem; }
+  .card { padding: 14px 6px; }
+  .feature-grid-modern, .grid.grid-cols-3 { grid-template-columns: 1fr !important; }
+  .footer { font-size: .92em; }
 }
 
-/* --- End CreativeConnect Theme Styles --- */
+@media (max-width: 450px) {
+  .hero-main-content { padding-left: 2px; }
+}
+
+/* --- End CreativeConnect Enhanced Theme Styles --- */
