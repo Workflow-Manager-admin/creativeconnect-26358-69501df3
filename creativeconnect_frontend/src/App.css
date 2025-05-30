@@ -145,7 +145,62 @@ a:hover, a:focus {
   z-index: 1;
   margin-top: 18px;
   margin-left: 8px;
+  /* Add subtle border and shadow when mixed with smiley */
+  border-radius: 16px;
+  box-shadow: 0 8px 40px #80000016, 0 1.5px 8px #ffd10417;
 }
+.smiley-animated-wrap {
+  position: absolute;
+  right: 16px;
+  bottom: 48px;
+  z-index: 3;
+  pointer-events: none;
+  /* Desktop only, hide on mobile, see responsive */
+  display: block;
+}
+.smiley-animated {
+  display: inline-block;
+  animation: smiley-bounce 2.1s infinite cubic-bezier(0.61,0.28,0.55,1.22);
+  filter: drop-shadow(0 4px 9px #80000033) drop-shadow(0 1.5px 4px #ffd104aa);
+  will-change: transform, filter;
+  /* BLEND with gold background */
+  background: var(--cc-white);
+  border-radius: 36px;
+  box-shadow: 0 2.5px 10px #e8c51755;
+  padding: 2px;
+}
+@keyframes smiley-bounce {
+  0%, 100% { transform: translateY(0) scale(1) rotate(0deg);}
+  10% { transform: translateY(-10px) scale(1.04) rotate(-7deg);}
+  22% { transform: translateY(-15px) scale(1.13) rotate(7deg);}
+  40% { transform: translateY(0px) scale(1.08) rotate(-5deg);}
+  70% { transform: translateY(-4px) scale(1.045) rotate(2deg);}
+  85% { transform: translateY(0px) scale(1) rotate(0deg);}
+}
+.smiley-inline {
+  display: none; /* shows only on mobile in hero title, see responsive */
+  vertical-align: middle;
+  margin-left: 6px;
+}
+@media (max-width: 900px) {
+  .smiley-animated-wrap {
+    display: none !important;
+  }
+  .smiley-inline {
+    display: inline-block !important;
+    animation: smiley-wave 2.25s infinite cubic-bezier(0.62,0,0.64,1.12);
+    margin-left: 5px;
+  }
+}
+@keyframes smiley-wave {
+  0%, 100% { transform: rotate(0deg);}
+  13% { transform: rotate(-16deg);}
+  28% { transform: rotate(14deg);}
+  43% { transform: rotate(-11deg);}
+  58% { transform: rotate(8deg);}
+  75% { transform: rotate(0deg);}
+}
+
 .hero-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
