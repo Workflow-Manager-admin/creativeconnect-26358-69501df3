@@ -79,7 +79,7 @@ function FeatureSection({ feature }) {
       // Welcome screen if none selected (shouldn't be shown with default section)
       return (
         <div className="hero">
-          <h1 className="title">Welcome to CreativeConnect</h1>
+          <h1 className="title">Welcome to ArtistryHub</h1>
           <div className="description">
             Select a section above to get started!
           </div>
