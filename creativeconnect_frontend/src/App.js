@@ -43,16 +43,9 @@ function FeatureSection({ feature }) {
         </div>
       );
     case 'gallery':
-      return (
-        <div className="card">
-          <div className="subtitle">Product Gallery</div>
-          <h1 className="title">Art & Crafts for Sale</h1>
-          <div className="description">
-            Browse the full gallery of all available handmade art, crafts, and designs.
-          </div>
-          <button className="btn btn-accent btn-large">Shop Gallery</button>
-        </div>
-      );
+      // Show the actual gallery component
+      const ProductGallery = require('./components/ProductGallery').default;
+      return <ProductGallery />;
     case 'custom':
       return (
         <div className="card">
