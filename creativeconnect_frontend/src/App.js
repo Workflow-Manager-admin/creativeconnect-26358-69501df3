@@ -7,14 +7,14 @@ import CustomOrders from './components/CustomOrders';
 import ProductGallery from './components/ProductGallery';
 import MessagingSystem from './components/MessagingSystem';
 
-/*
+/* 
   PUBLIC_INTERFACE
-  ArtistryHub Main App — Full Layout Version (Navigation + All Feature Sections)
+  CreativeConnect Main App — Enhanced UI/UX Homepage
 
-  - Navigation bar with section navigation
-  - Homepage with welcome banner and feature highlights
-  - Support for individual feature sections
-  - Footer branding
+  - Redesigned hero banner with background illustration
+  - Animated and illustrated feature highlights
+  - Improved CTA buttons
+  - Consistent maroon/white/yellow brand colors
 */
 
 const SECTIONS = [
@@ -26,13 +26,40 @@ const SECTIONS = [
   { key: 'messages', label: 'Messaging' },
 ];
 
-function App() {
-  // Section control; default to Home
-  const [section, setSection] = useState('home');
-  // Responsive nav menu (for mobile if wanted)
-  const [navOpen, setNavOpen] = useState(false);
+// Illustration URLs (simple unsplash/placeholder SVGs/local assets could also be used)
+const HERO_GRAPHIC =
+  'https://cdn.pixabay.com/photo/2016/04/01/11/56/art-1292615_1280.png'; // Artistic SVG illustration
+const FEATURE_IMAGES = [
+  'https://cdn.pixabay.com/photo/2021/01/07/18/58/painting-5896558_1280.png', // Portfolio
+  'https://cdn.pixabay.com/photo/2019/12/14/13/32/art-4694968_1280.png', // Stories
+  'https://cdn.pixabay.com/photo/2017/01/31/20/16/craft-2022452_1280.png', // Orders
+  'https://cdn.pixabay.com/photo/2017/09/15/21/59/paint-2755788_1280.png', // Gallery
+  'https://cdn.pixabay.com/photo/2014/04/02/14/10/phone-306411_1280.png', // Messaging
+];
 
-  // Section displays
+// Stagger for feature card animation
+function useStaggeredMount(count, ms) {
+  const [loaded, setLoaded] = useState(Array(count).fill(false));
+  React.useEffect(() => {
+    let t = [];
+    for (let i = 0; i < count; i++) {
+      t.push(setTimeout(() => {
+        setLoaded(l => {
+          const copy = [...l];
+          copy[i] = true;
+          return copy;
+        });
+      }, ms * i + 100));
+    }
+    return () => t.forEach(clearTimeout);
+  }, [count, ms]);
+  return loaded;
+}
+
+function App() {
+  const [section, setSection] = useState('home');
+
+  // Home/landing with upgrades
   function renderSection() {
     switch (section) {
       case 'portfolio':
@@ -46,62 +73,53 @@ function App() {
       case 'messages':
         return <MessagingSystem />;
       default:
-        // Home section: engaging intro; summary of features and who it's by
+        // Enhanced Hero Section + animated features
         return (
           <main>
-            <section className="hero">
-              <div className="subtitle">Welcome to</div>
-              <h1 className="title">
-                <span className="logo-symbol" aria-label="Art">🎨</span> ArtistryHub
-              </h1>
-              <p className="description">
-                The creative platform connecting artists, crafters, and admirers.<br />
-                Discover unique artworks, explore creative journeys, and request custom-crafted pieces—all in one inspiring community.
-              </p>
-              <div style={{ margin: '22px 0 0 0' }}>
-                <button
-                  className="btn btn-accent btn-large"
-                  onClick={() => setSection('portfolio')}
-                >Explore Artists</button>
+            <section className="hero hero-modern">
+              <div className="hero-art-bg">
+                <img
+                  src={HERO_GRAPHIC}
+                  alt="Creative Connect Graphic"
+                  className="hero-art-img"
+                  loading="lazy"
+                />
+                <div className="hero-overlay" />
+              </div>
+              <div className="hero-main-content">
+                <div className="subtitle hero-fade-in" style={{fontWeight: 700, color: 'var(--cc-gold)'}}>Fuel your creativity</div>
+                <h1 className="title hero-fade-in" style={{fontSize: '3rem', marginBottom: 8}}>
+                  <span className="logo-symbol" aria-label="Art">🎨</span>{" "}
+                  <span style={{ color: 'var(--cc-maroon)', filter: 'drop-shadow(0px 2px 0 #ffd10490)' }}>
+                    CreativeConnect
+                  </span>
+                </h1>
+                <p className="description hero-fade-in" style={{marginBottom: 18, maxWidth: 640}}>
+                  A vibrant art & craft community welcoming artists, crafters, and admirers.<br />
+                  <b style={{color: 'var(--cc-maroon)'}}>Discover</b> new artists, <b style={{color:'var(--cc-gold)'}}>explore</b> stories, and <b style={{color:'var(--cc-maroon)'}}>customize</b> your own art journey. Connect. Inspire. Create.
+                </p>
+                <div className="hero-cta hero-fade-in">
+                  <button
+                    className="btn btn-accent btn-large hero-cta-btn"
+                    onClick={() => setSection('portfolio')}
+                  >
+                    Meet Our Artists
+                  </button>
+                  <button
+                    className="btn btn-large hero-cta-btn"
+                    style={{
+                      marginLeft: 13, background: 'var(--cc-maroon)',
+                      color:'var(--cc-white)', border: '2px solid var(--cc-gold)'
+                    }}
+                    onClick={() => setSection('orders')}
+                  >
+                    Get a Custom Piece
+                  </button>
+                </div>
               </div>
             </section>
-            <section className="container" style={{ marginTop: 38 }}>
-              <h2 className="subtitle" style={{ color: 'var(--cc-maroon)', textAlign: 'center' }}>
-                Platform Features
-              </h2>
-              <div className="grid grid-cols-3" style={{ gap: 24, marginTop: 18 }}>
-                <FeatureCard
-                  title="Artist Portfolios"
-                  desc="Browse personal portfolios, discover creators & inspirations."
-                  icon="🖼️"
-                  onGo={() => setSection('portfolio')}
-                />
-                <FeatureCard
-                  title="Behind-the-Scenes"
-                  desc="Read stories and see process photos direct from the studio."
-                  icon="🛠️"
-                  onGo={() => setSection('stories')}
-                />
-                <FeatureCard
-                  title="Custom Orders"
-                  desc="Collaborate for unique, made-to-order craft pieces with messaging."
-                  icon="✨"
-                  onGo={() => setSection('orders')}
-                />
-                <FeatureCard
-                  title="Product Gallery"
-                  desc="Explore artworks and crafts for inspiration or purchase."
-                  icon="🛒"
-                  onGo={() => setSection('gallery')}
-                />
-                <FeatureCard
-                  title="Messaging"
-                  desc="Chat with artists and buyers—share ideas, coordinate orders."
-                  icon="💬"
-                  onGo={() => setSection('messages')}
-                />
-              </div>
-            </section>
+
+            <FeatureHighlights setSection={setSection} />
           </main>
         );
     }
@@ -113,7 +131,7 @@ function App() {
         <div className="container flex justify-between align-center">
           <div className="logo" style={{ cursor: "pointer" }} onClick={() => setSection('home')}>
             <span className="logo-symbol" aria-label="Art">🎨</span>
-            ArtistryHub
+            CreativeConnect
           </div>
           <nav className="navbar" style={{ flex: 1, marginLeft: 32 }}>
             <ul className="navbar-list flex" style={{ gap: 8, listStyle: "none", margin: 0, padding: 0 }}>
@@ -143,13 +161,165 @@ function App() {
       </header>
       <div style={{ flex: 1 }}>{renderSection()}</div>
       <footer className="footer">
-        &copy; {new Date().getFullYear()} ArtistryHub &mdash; Connecting Creators &amp; Admirers
+        &copy; {new Date().getFullYear()} CreativeConnect &mdash; Connecting Creators &amp; Admirers
       </footer>
     </div>
   );
 }
 
-// Card for homepage feature highlights
+// --- Animated Feature Highlights ---
+function FeatureHighlights({ setSection }) {
+  const features = [
+    {
+      title: "Artist Portfolios",
+      desc: "Browse portfolios, discover brilliant creators & visual stories.",
+      icon: "🖼️",
+      img: FEATURE_IMAGES[0],
+      onGo: () => setSection('portfolio')
+    },
+    {
+      title: "Behind-the-Scenes",
+      desc: "Peek into creative journeys and studio moments.",
+      icon: "🛠️",
+      img: FEATURE_IMAGES[1],
+      onGo: () => setSection('stories')
+    },
+    {
+      title: "Custom Orders",
+      desc: "Commission unique art or handmade crafts directly.",
+      icon: "✨",
+      img: FEATURE_IMAGES[2],
+      onGo: () => setSection('orders')
+    },
+    {
+      title: "Product Gallery",
+      desc: "Explore and shop a curated selection of original artworks.",
+      icon: "🛒",
+      img: FEATURE_IMAGES[3],
+      onGo: () => setSection('gallery')
+    },
+    {
+      title: "Messaging",
+      desc: "Chat securely with artists and fellow enthusiasts.",
+      icon: "💬",
+      img: FEATURE_IMAGES[4],
+      onGo: () => setSection('messages')
+    }
+  ];
+  // Animation: cards fade up staggered
+  const loaded = useStaggeredMount(features.length, 130);
+
+  return (
+    <section className="container" style={{ marginTop: 54, marginBottom: 56 }}>
+      <h2 className="subtitle" style={{ color: 'var(--cc-maroon)', textAlign: 'center', fontWeight: 800, fontSize: "1.62em", marginBottom: 13, letterSpacing: '.01em' }}>
+        <span style={{borderBottom: '4px solid var(--cc-gold)', paddingBottom: 2, color:'var(--cc-maroon)'}}>Featured Platform Highlights</span>
+      </h2>
+      <div
+        className="grid grid-cols-3 feature-grid-modern"
+        style={{ gap: 30, marginTop: 27, justifyContent: 'center' }}
+      >
+        {features.map((f, i) => (
+          <FeatureCardModern
+            key={f.title}
+            {...f}
+            style={{
+              opacity: loaded[i] ? 1 : 0,
+              transform: loaded[i] ? 'translateY(0)' : 'translateY(32px)',
+              transition: `opacity 0.6s ${i*0.12+0.25}s cubic-bezier(0.42,0,0,1), transform 0.7s ${i*0.13+0.23}s cubic-bezier(0.38,1.72,0.43,0.8)`
+            }}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function FeatureCardModern({ title, desc, icon, onGo, img, style={} }) {
+  return (
+    <div
+      className="card feature-card-modern"
+      style={{
+        minHeight: 233,
+        textAlign: "center",
+        background: "var(--cc-white)",
+        position: "relative",
+        overflow: "visible",
+        padding: "28px 22px 24px 22px",
+        border: "1.7px solid var(--cc-grey-border)",
+        boxShadow: "var(--card-shadow)",
+        ...style
+      }}
+      tabIndex={0}
+      aria-label={`${title} feature card`}
+    >
+      <div className="feature-img-wrap" style={{
+        width: 72, height: 72, margin: "0 auto 10px auto", position:"relative"
+      }}>
+        <img
+          src={img}
+          alt=""
+          loading="lazy"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            borderRadius: 15,
+            border: "1.5px solid var(--cc-gold)",
+            boxShadow: "0 3px 10px #ffd10430"
+          }}
+        />
+        <span
+          style={{
+            position: "absolute",
+            right: -19,
+            top: -13,
+            fontSize: "1.55em",
+            background: "var(--cc-gold)",
+            borderRadius: "100%",
+            border: "2.5px solid var(--cc-white)",
+            boxShadow: "0 2px 5px #fff3, 0 0.5px 1.5px #ffd10411"
+          }}
+        >
+          {icon}
+        </span>
+      </div>
+      <div style={{
+        fontWeight: 800,
+        color: "var(--cc-maroon)",
+        fontSize: "1.18em",
+        marginBottom: 8,
+        letterSpacing: '0.01em'
+      }}>
+        {title}
+      </div>
+      <div
+        style={{
+          color: "var(--text-secondary)",
+          fontSize: "1em",
+          minHeight: 32,
+          marginBottom: 13,
+        }}
+      >
+        {desc}
+      </div>
+      <button
+        className="btn btn-accent"
+        onClick={onGo}
+        style={{
+          marginTop: 8,
+          fontSize: "1em",
+          fontWeight: 700,
+          borderRadius: 7,
+          boxShadow: "0 1px 8px #ffd10419"
+        }}
+      >
+        Explore
+      </button>
+    </div>
+  );
+}
+
+// LEGACY: For backward code compatibility (used nowhere)
 function FeatureCard({ title, desc, icon, onGo }) {
   return (
     <div className="card" style={{ minHeight: 170, textAlign: "center", position: "relative" }}>
