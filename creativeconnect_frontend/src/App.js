@@ -145,7 +145,7 @@ function App() {
       </header>
       <div style={{ flex: 1 }}>{renderSection()}</div>
       <footer className="footer">
-        &copy; {new Date().getFullYear()} CreativeConnect &mdash; Connecting Creators &amp; Admirers
+        &copy; {new Date().getFullYear()} artistryhub &mdash; Connecting Creators &amp; Admirers
       </footer>
     </div>
   );
