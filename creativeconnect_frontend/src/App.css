@@ -1,60 +1,110 @@
 :root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
+  /* CreativeConnect Branding Colors */
+  --cc-maroon: #800000;
+  --cc-white: #ffffff;
+  --cc-gold: #e8c517;
+  --cc-dark: #1d1420;
+  --cc-grey-bg: #f9f6fa;
+  --cc-grey-border: #e4dddd;
+
+  --text-color: #232027;
+  --text-secondary: #765049;
+  --border-color: var(--cc-grey-border);
+
+  /* Button Colors */
+  --btn-primary-bg: var(--cc-maroon);
+  --btn-primary-text: var(--cc-white);
+  --btn-primary-hover-bg: #9c2626;
+  --btn-accent-bg: var(--cc-gold);
+  --btn-accent-text: #463a00;
+  --btn-accent-hover-bg: #ffe25f;
+
+  /* Card and layout */
+  --card-bg: var(--cc-white);
+  --card-shadow: 0 2px 8px rgba(128,0,0,0.05), 0 0.5px 1.5px rgba(0,0,0,0.05);
 }
 
+/* --------- Base Elements --------- */
 body {
   margin: 0;
   font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  background-color: var(--kavia-dark);
+  background-color: var(--cc-grey-bg);
   color: var(--text-color);
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--cc-maroon);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+a:hover, a:focus {
+  color: var(--cc-gold);
+  text-decoration: underline;
 }
 
 .app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: var(--cc-grey-bg);
 }
 
+/* ------ HEADER & FOOTER ------ */
+.header,
 .navbar {
-  background-color: var(--kavia-dark);
-  padding: 16px;
+  background: var(--cc-maroon);
+  color: var(--cc-white);
+  padding: 0;
+  min-height: 60px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--border-color);
-  position: fixed;
+  border-bottom: 3px solid var(--cc-gold);
+  position: sticky;
   top: 0;
-  width: 100%;
-  box-sizing: border-box;
   z-index: 100;
+  box-shadow: 0 3px 6px rgba(128,0,0,0.06);
 }
 
+.footer {
+  background: var(--cc-maroon);
+  color: var(--cc-gold);
+  text-align: center;
+  padding: 20px 0 12px 0;
+  border-top: 3px solid var(--cc-gold);
+  font-size: 1rem;
+  font-family: inherit;
+  margin-top: auto;
+}
+
+/* Logo */
 .logo {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 700;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  letter-spacing: 0.02em;
+  color: var(--cc-gold);
+  user-select: none;
 }
-
 .logo-symbol {
-  color: var(--kavia-orange);
+  font-size: 1.5em;
+  color: var(--cc-gold);
+  font-family: 'Georgia', serif;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1060px;
   margin: 0 auto;
   padding: 0 24px;
   width: 100%;
   box-sizing: border-box;
 }
 
+/* --- HERO/MAIN Banner --- */
 .hero {
   padding-top: 120px;
   padding-bottom: 64px;
@@ -63,46 +113,157 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 24px;
+  background: var(--cc-white);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+  margin: 40px auto 0 auto;
 }
 
 .subtitle {
-  color: var(--kavia-orange);
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
-.title {
-  font-size: 3.5rem;
+  color: var(--cc-maroon);
   font-weight: 600;
-  line-height: 1.2;
+  font-size: 1.13rem;
+  letter-spacing: 0.04em;
+}
+.title {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.1;
   margin: 0;
+  color: var(--cc-maroon);
 }
-
 .description {
-  font-size: 1.1rem;
-  line-height: 1.5;
+  font-size: 1.07rem;
+  line-height: 1.65;
   color: var(--text-secondary);
-  max-width: 600px;
-  margin-bottom: 16px;
+  max-width: 620px;
+  margin: 0 auto 16px auto;
 }
 
+/* -------- BUTTONS --------- */
 .btn {
-  background-color: var(--kavia-orange);
-  color: white;
+  display: inline-block;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  font-weight: 500;
+  border-radius: 6px;
+  outline: none;
+  padding: 12px 28px;
+  font-size: 1.09rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 9px rgba(128,0,0,0.04);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background 0.18s, color 0.18s, box-shadow 0.13s;
+}
+.btn:active,
+.btn:focus {
+  outline: 2px solid var(--cc-gold);
+  box-shadow: 0 1px 3px rgba(232,197,23,0.15);
+}
+.btn:hover {
+  background: var(--btn-primary-hover-bg);
 }
 
-.btn:hover {
-  background-color: #FF8B4D;
+.btn-accent {
+  background: var(--btn-accent-bg);
+  color: var(--btn-accent-text);
+}
+.btn-accent:hover {
+  background: var(--btn-accent-hover-bg);
 }
 
 .btn-large {
-  padding: 12px 24px;
-  font-size: 1.1rem;
+  padding: 16px 40px;
+  font-size: 1.22rem;
+  border-radius: 8px;
 }
+
+/* --------- CARDS ---------- */
+.card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+  padding: 32px 28px;
+  margin: 18px 0;
+  border: 1px solid var(--cc-grey-border);
+  transition: box-shadow 0.18s, border 0.18s;
+}
+.card:hover {
+  box-shadow: 0 6px 18px rgba(128,0,0,0.12);
+  border: 1.5px solid var(--cc-gold);
+}
+
+/* ------ GRID/LAYOUT UTILITIES ------ */
+.grid {
+  display: grid;
+  gap: 28px;
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.flex {
+  display: flex;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.align-center {
+  align-items: center;
+}
+
+.mt-2 { margin-top: 8px; }
+.mt-4 { margin-top: 16px; }
+.mt-6 { margin-top: 24px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-6 { margin-bottom: 24px; }
+.pt-4 { padding-top: 16px; }
+.pb-4 { padding-bottom: 16px; }
+.p-4 { padding: 16px; }
+
+/* Utility typography */
+.text-maroon { color: var(--cc-maroon); }
+.text-gold { color: var(--cc-gold); }
+.text-accent { color: var(--cc-gold); }
+.text-secondary { color: var(--text-secondary); }
+.bg-white { background: var(--cc-white); }
+.bg-maroon { background: var(--cc-maroon); }
+.bg-accent { background: var(--cc-gold); }
+
+.rounded { border-radius: 12px; }
+.shadow { box-shadow: 0 2px 16px rgba(128,0,0,0.08); }
+
+/* Scrollbar for webkit */
+::-webkit-scrollbar {
+  width: 10px;
+  background: var(--cc-grey-bg);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--cc-maroon);
+  border-radius: 6px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+  .hero {
+    padding-top: 60px;
+    padding-bottom: 24px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  .container {
+    padding: 0 10px;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .card {
+    padding: 18px 8px;
+  }
+}
+
+/* --- End CreativeConnect Theme Styles --- */
