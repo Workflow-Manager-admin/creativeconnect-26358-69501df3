@@ -3,6 +3,7 @@
   --cc-maroon: #800000;
   --cc-white: #ffffff;
   --cc-gold: #e8c517;
+  --cc-gold-highlight: #ffd104;
   --cc-dark: #1d1420;
   --cc-grey-bg: #f9f6fa;
   --cc-grey-border: #e4dddd;
@@ -22,6 +23,13 @@
   /* Card and layout */
   --card-bg: var(--cc-white);
   --card-shadow: 0 2px 8px rgba(128,0,0,0.05), 0 0.5px 1.5px rgba(0,0,0,0.05);
+
+  /* Gradients for effects */
+  --shiny-gradient: linear-gradient(90deg,
+    #800000 0%, #e8c517 27%, #ffec85 40%, #800000 60%, #e8c517 85%, #800000 100%);
+  --shimmer-gradient: linear-gradient(
+    120deg, #dcb91f 10%, #fff8b4 36%, #800000 69%, #dcb91f 87%
+  );
 }
 
 /* --------- Base Elements --------- */
