@@ -27,8 +27,6 @@ const SECTIONS = [
   { key: 'messages', label: 'Messaging' },
 ];
 
-import heroBanner from './assets/hero-banner.jpeg';
-// Illustration URLs (simple unsplash/placeholder SVGs/local assets could also be used)
 const HERO_GRAPHIC = heroBanner; // Use local, user-provided image
 const FEATURE_IMAGES = [
   'https://cdn.pixabay.com/photo/2021/01/07/18/58/painting-5896558_1280.png', // Portfolio
