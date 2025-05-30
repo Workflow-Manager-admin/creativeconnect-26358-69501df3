@@ -26,9 +26,9 @@ const SECTIONS = [
   { key: 'messages', label: 'Messaging' },
 ];
 
+import heroBanner from './assets/hero-banner.jpeg';
 // Illustration URLs (simple unsplash/placeholder SVGs/local assets could also be used)
-const HERO_GRAPHIC =
-  'https://cdn.pixabay.com/photo/2016/04/01/11/56/art-1292615_1280.png'; // Artistic SVG illustration
+const HERO_GRAPHIC = heroBanner; // Use local, user-provided image
 const FEATURE_IMAGES = [
   'https://cdn.pixabay.com/photo/2021/01/07/18/58/painting-5896558_1280.png', // Portfolio
   'https://cdn.pixabay.com/photo/2019/12/14/13/32/art-4694968_1280.png', // Stories
@@ -119,16 +119,18 @@ function App() {
               <div className="hero-art-bg hero-fade-in">
                 <img
                   src={HERO_GRAPHIC}
-                  alt="Artistic colorful illustration" 
+                  alt="CreativeConnect – Community hero art"
                   style={{
                     width: "100%",
                     height: "auto",
                     maxWidth: 340,
-                    maxHeight: 240,
-                    borderRadius: 16,
+                    maxHeight: 340,
+                    aspectRatio: "4/3",
+                    borderRadius: 22,
                     border: "2.5px solid var(--cc-gold)",
-                    boxShadow: "0 6px 28px #e8c51730, 0 1.5px 8px #80000018",
+                    boxShadow: "0 9px 32px #e8c51738, 0 2.5px 16px #8000001A",
                     background: "linear-gradient(120deg, #fff 80%, #e8c51733 100%)",
+                    objectFit: "cover"
                   }}
                   loading="lazy"
                   draggable="false"

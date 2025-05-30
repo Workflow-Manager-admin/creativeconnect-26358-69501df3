@@ -142,6 +142,23 @@ a:hover, a:focus {
   align-items: center;
   margin-left: 28px;
   margin-right: 0;
+  /* Visually important to keep image within rounded box for hero */
+}
+.hero-art-bg img {
+  border-radius: 22px;
+  border: 2.5px solid var(--cc-gold);
+  box-shadow: 0 9px 32px #ffd1043c, 0 2.5px 14px #80000016;
+  object-fit: cover;
+  background: linear-gradient(120deg, #fff 90%, #e8c51721 100%);
+  width: 100%;
+  max-width: 340px;
+  max-height: 340px;
+  aspect-ratio: 4/3;
+  transition: box-shadow 0.22s, filter 0.22s;
+}
+.hero-art-bg img:hover, .hero-art-bg img:focus {
+  box-shadow: 0 16px 48px #e8c51760, 0 4px 18px #80000024;
+  filter: brightness(1.01) saturate(1.1);
 }
 .hero-main-content {
   flex: 1;
