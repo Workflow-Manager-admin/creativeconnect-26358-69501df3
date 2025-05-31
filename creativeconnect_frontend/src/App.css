@@ -470,7 +470,12 @@ a:hover, a:focus {
 
 .grid {
   display: grid;
-  gap: 28px;
+  gap: 32px;
+  /* Responsive fallback for wider containers */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.grid.grid-tight {
+  gap: 21px;
 }
 .grid-cols-2 {
   grid-template-columns: repeat(2, 1fr);
@@ -479,7 +484,32 @@ a:hover, a:focus {
   grid-template-columns: repeat(3, 1fr);
 }
 
-/* Utility & Responsive Tweaks */
+/* Custom: Responsive breakpoints for grids on home/feature/product views */
+@media (max-width: 1200px) {
+  .grid,
+  .feature-grid-modern,
+  .product-gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)) !important;
+    gap: 22px !important;
+  }
+}
+@media (max-width: 900px) {
+  .grid,
+  .feature-grid-modern,
+  .product-gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 16px !important;
+  }
+}
+@media (max-width: 700px) {
+  .grid,
+  .feature-grid-modern,
+  .product-gallery-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+}
+
 .flex { display: flex; }
 .justify-between { justify-content: space-between; }
 .align-center { align-items: center; }
