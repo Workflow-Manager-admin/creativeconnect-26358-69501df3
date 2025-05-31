@@ -313,8 +313,13 @@ function FeatureHighlights({ setSection }) {
         <span style={{borderBottom: '4px solid var(--cc-gold)', paddingBottom: 2, color:'var(--cc-maroon)'}}>Featured Platform Highlights</span>
       </h2>
       <div
-        className="grid grid-cols-3 feature-grid-modern"
-        style={{ gap: 30, marginTop: 27, justifyContent: 'center' }}
+        className="grid feature-grid-modern"
+        style={{
+          gap: 24,
+          marginTop: 27,
+          justifyContent: 'center',
+          gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+        }}
       >
         {features.map((f, i) => (
           <FeatureCardModern
