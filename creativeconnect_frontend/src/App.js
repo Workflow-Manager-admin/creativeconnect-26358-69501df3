@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import heroBanner from './assets/hero-banner.jpeg';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
@@ -18,6 +18,34 @@ import AboutUs from './components/AboutUs';
   - Navigation includes About Us
   - No breaking changes to existing sections
 */
+
+// Restore FEATURE_IMAGES and useStaggeredMount for use in FeatureHighlights
+const FEATURE_IMAGES = [
+  'https://cdn.pixabay.com/photo/2021/01/07/18/58/painting-5896558_1280.png', // Portfolio
+  'https://cdn.pixabay.com/photo/2019/12/14/13/32/art-4694968_1280.png', // Stories
+  'https://cdn.pixabay.com/photo/2017/01/31/20/16/craft-2022452_1280.png', // Orders
+  'https://cdn.pixabay.com/photo/2017/09/15/21/59/paint-2755788_1280.png', // Gallery
+  'https://cdn.pixabay.com/photo/2014/04/02/14/10/phone-306411_1280.png', // Messaging
+];
+
+// Stagger for feature card animation
+function useStaggeredMount(count, ms) {
+  const [loaded, setLoaded] = useState(Array(count).fill(false));
+  React.useEffect(() => {
+    let t = [];
+    for (let i = 0; i < count; i++) {
+      t.push(setTimeout(() => {
+        setLoaded(l => {
+          const copy = [...l];
+          copy[i] = true;
+          return copy;
+        });
+      }, ms * i + 100));
+    }
+    return () => t.forEach(clearTimeout);
+  }, [count, ms]);
+  return loaded;
+}
 
 const SECTIONS = [
   { key: 'home', label: 'Home', route: '/' },
