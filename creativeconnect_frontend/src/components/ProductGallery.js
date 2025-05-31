@@ -94,9 +94,9 @@ const ProductGallery = () => {
           A curated collection of original artwork and hand-crafted pieces created by ArtistryHub's talented community.
         </div>
         <div
-          className="grid"
+          className="grid product-gallery-grid"
           style={{
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
             gap: "28px",
             margin: "0 auto",
           }}
@@ -108,13 +108,16 @@ const ProductGallery = () => {
               style={{
                 padding: 0,
                 overflow: "hidden",
-                borderRadius: 15,
+                borderRadius: 17,
                 background: "var(--card-bg)",
                 boxShadow: "var(--card-shadow)",
-                border: "1.5px solid var(--cc-grey-border)",
+                border: "1.7px solid var(--cc-grey-border)",
                 transition: "box-shadow 0.18s, border 0.18s",
                 display: "flex",
                 flexDirection: "column",
+                minWidth: 0,
+                minHeight: 328,
+                maxWidth: "100%",
               }}
             >
               <img
@@ -122,20 +125,23 @@ const ProductGallery = () => {
                 alt={`Product: ${prod.title} by ${prod.artist}`}
                 style={{
                   width: "100%",
-                  height: 180,
+                  height: 188,
+                  minHeight: 130,
                   objectFit: "cover",
-                  borderTopLeftRadius: 15,
-                  borderTopRightRadius: 15,
+                  borderTopLeftRadius: 17,
+                  borderTopRightRadius: 17,
                   borderBottom: "1px solid var(--cc-grey-border)",
+                  transition: "height .2s",
                 }}
               />
               <div style={{ padding: "15px 15px 12px 15px", flex: 1 }}>
                 <div
                   style={{
-                    fontWeight: 700,
-                    fontSize: "1.06rem",
+                    fontWeight: 800,
+                    fontSize: "1.12rem",
                     color: "var(--cc-maroon)",
-                    marginBottom: 4,
+                    marginBottom: 5,
+                    lineHeight: 1.1,
                   }}
                 >
                   {prod.title}
@@ -143,9 +149,10 @@ const ProductGallery = () => {
                 <div
                   style={{
                     color: "var(--text-secondary)",
-                    fontSize: "0.98rem",
-                    fontWeight: 500,
+                    fontSize: "0.97rem",
+                    fontWeight: 600,
                     marginBottom: 4,
+                    letterSpacing: "0.01em",
                   }}
                 >
                   {prod.artist}
