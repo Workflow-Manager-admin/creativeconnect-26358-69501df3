@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import heroBanner from './assets/hero-banner-unsplash.jpg';
+import heroBanner from './assets/hero-banner-artistic.jpg';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import ArtistPortfolio from './components/ArtistPortfolio';
